@@ -1,0 +1,31 @@
+.main-header {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    border: 1px solid #D1C7A3;
+    width: 1920px;
+    text-align: center;
+    height: 76px;
+    padding-top: 15px;
+    background-color: #EBE6D7;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 15px;
+    padding-right: 15px;
+    .main-header__right-login{
+        display: flex;
+    }
+}
+.main-header__left-burger{
+    display: flex;
+}
+.main-header__left-burger__catalog{
+    margin-left: 20px;
+}
+.main-header__left-burger__catalog a{   
+    text-decoration: none;
+}
+.main-header__left-burger__picture{
+    margin-top: 4px;
+}

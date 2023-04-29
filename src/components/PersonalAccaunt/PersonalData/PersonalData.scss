@@ -1,0 +1,30 @@
+.personal-data{
+    padding: 20px;
+    font-size: 24px;
+    flex-grow: 4;
+    h3{
+        margin-top: 10px;
+    }
+
+    .personal-data__personal{
+        display: flex;
+        p{
+            margin-top: 10px;
+        }
+        .personal-data__elements{
+            margin-left: 40px;
+        }
+        .personal-data__values{
+            margin-left: 40px;
+        }
+    }
+    .personal-data__edit{
+        border: 1px solid #D1C7A3;
+        padding: 10px;
+    }
+    .personal-data__edit:hover{
+        border: 1px solid #D1C7A3;
+        background-color: #D1C7A3;
+        padding: 10px;
+    }
+}

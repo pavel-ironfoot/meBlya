@@ -1,0 +1,17 @@
+.aside-accaunt{
+    flex-grow: 1;
+    font-size: 36px;
+    .aside-accaunt__link{
+        display: block;
+        padding: 10px;
+        text-decoration: none;
+        color: black;
+    }
+}
+.aside-accaunt__link-active{
+    display: block;
+    background-color: #D1C7A3;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}

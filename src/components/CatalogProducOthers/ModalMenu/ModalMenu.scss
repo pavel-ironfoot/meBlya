@@ -1,0 +1,47 @@
+.modal-menu {
+    height:100vh;
+    width:100vw;
+    background-color: rgba(0, 0, 0, 0.700);
+    position: fixed;
+    top: 76px;
+    left: 0;
+    display: flex;
+    transform: scale(0);
+    justify-content: center;
+    /* transition: 2s; */
+}
+.active-menu {
+    transform: scale(1);
+}
+.modal-menu__content{
+    margin-top: 0px;
+    background-color: #EBE6D7;
+    width: 1920px;
+    height: 611px;
+    display: flex;   
+}
+.modal-menu__left-block{
+    width: 1142px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 100px;
+}
+.modal-menu__content__menu h1{
+    margin-bottom: 50px;
+    font-size: 52px;
+}
+.modal-menu__content__menu p{
+    font-size: 17px;
+    margin-top: 10px;
+    font-weight: 400;
+}
+.modal-menu__picture-block{
+    padding-left: 54px;
+    text-align: left;
+    color: #FFFFFF;
+    width: 778px;
+    background-image: url('../../../images/header/modal-menu.png');
+}
+.modal-menu__picture-block p{
+    margin-top: 489px;
+}

@@ -1,0 +1,29 @@
+.main-container{
+    background-color: #EBE6D7;
+    height: 1256px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.main-container__info{
+    width: 1000px;
+    height: 429px;
+}
+.main-container__info h1{
+    font-family: 'PP Neue World';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 95px;
+    text-align: center;
+    color: #1F1F1F;
+    line-height: 87%;
+}
+.main-container__info p{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 135%;
+    text-align: center;
+}

@@ -1,0 +1,30 @@
+.main-katalog{
+    width: 80%;
+    button{
+        padding: 10px 15px;       
+    }
+}
+.main-katalog__all-products{
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-katalog__one-product{
+    border: 2px solid #D1C7A3;
+    padding: 15px;
+    width: fit-content;
+}
+
+.main-katalog__about{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-katalog button{
+    padding: 10px 15px;
+    
+}
+.main-katalog__pagination{
+    margin: 5px auto 5px 50px;
+}

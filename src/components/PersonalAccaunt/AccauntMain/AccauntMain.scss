@@ -1,0 +1,13 @@
+.accaunt-main{
+    margin-top: 76px;
+    .accaunt-main__h1{
+        text-align: center;
+        font-size: 83px;
+    }
+    .accaunt-main__container{
+        display: flex;
+    }
+    .accaunt-main__main{
+        flex-grow: 4;
+    }
+}

@@ -1,0 +1,96 @@
+.product-page__main-form{
+    padding: 40px;
+}
+.product-page__form-field{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.product-page__main-form p{
+    margin-top: 15px;
+}
+.product-page__main-form .addToBasket{
+    width: 500px;
+    padding: 20px;
+    font-size: 20px;
+    background-color: #645832;
+}
+.product-page__checkbox{
+    padding: 5px;
+    font-size: 20px;
+}
+
+.product-page__form-field input[type="radio"]{
+    display: none;
+}
+
+.label-color{
+    display: inline-block;
+    width: 33px;
+    height: 33px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 2px;
+}
+.label-color:hover{
+    transform: scale(1.25);
+}
+.product-page__form-field input[type="radio"]:checked+.label-color{
+    transform: scale(1.25);
+}
+.black{
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* background-color: #252121; */
+}
+.label-thickness{
+    display: inline-block;
+    border-radius: 8px;
+    width: 142px;
+    height: 56px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: 1px solid #D1C7A3;
+}
+.thickness{
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    height: 100%;
+}
+.label-thickness:hover{
+    background-color: #645832;
+}
+.product-page__form-field input[type="radio"]:checked+.label-thickness{
+    background-color: #645832;
+}
+.facade-calculator{
+    display: flex;
+}
+.facade-calculator div{
+    margin-right: 10px;
+}
+.facade-calculator input{
+    font-size: 20px;
+    padding: 10px;
+    border:1px solid #D1C7A3;
+    background-color: #EBE6D7;
+}
+.product-page__form-field__count input{
+    border: none;
+    padding: 0px;
+    width: 27px;
+    background-color: #EBE6D7;
+}
+.product-page__form-field_plus-minus{
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    background-color: #EBE6D7;
+}
+.product-page__form-field__count-wrapper{
+    border:1px solid #D1C7A3;
+}

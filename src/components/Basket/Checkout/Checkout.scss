@@ -1,0 +1,14 @@
+.checkout{
+    margin-top: 76px;
+    display: flex;
+    .checkout-left{
+        padding: 15px;
+        flex-grow: 4;
+        background-color: #FFFFFF;
+    }
+    .checkout-right{
+        flex-grow: 2;
+        padding: 20px;
+        background-color: #EBE6D7;
+    }
+}
