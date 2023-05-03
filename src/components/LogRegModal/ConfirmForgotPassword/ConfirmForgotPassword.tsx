@@ -67,10 +67,10 @@ export const ConfirmForgotPassword: React.FC<ConfirmForgotPasswordProps> = ({ se
 
                 <form onSubmit={handleSubmit} action="">
                     <div>
-                        <h1>Login</h1>
+                        <h1>ВХІД</h1>
                         <FormField
-                            placeholder='Enter your email...'
-                            label='Email:'
+                            placeholder='Введіть електронну пошту'
+                            label='Електронна пошта'
                             type='email'
                             name='email'
                             id='email'
@@ -81,8 +81,8 @@ export const ConfirmForgotPassword: React.FC<ConfirmForgotPasswordProps> = ({ se
                             {emailLoginError === 'nomistake' ? '' : emailLoginError}
                         </p>
                         <FormField
-                            placeholder='Enter code from emai'
-                            label='Enter received code:'
+                            placeholder='Введіть код'
+                            label='Введіть код, надісланий вам на пошту '
                             type='text'
                             name='confirm-token'
                             id='confirm-token'
@@ -93,8 +93,8 @@ export const ConfirmForgotPassword: React.FC<ConfirmForgotPasswordProps> = ({ se
                             {confirmTokenError === 'nomistake' ? '' : confirmTokenError}
                         </p>
                         <FormField
-                            placeholder='Enter new password...'
-                            label='Enter new password:'
+                            placeholder='Введіть пароль'
+                            label='Введіть новий пароль '
                             type='password'
                             name='new-password'
                             id='new-password'
@@ -105,7 +105,7 @@ export const ConfirmForgotPassword: React.FC<ConfirmForgotPasswordProps> = ({ se
                             {newPasswordLoginError === 'nomistake' ? '' : newPasswordLoginError}
                         </p>
                     </div>
-                    <button type="submit" disabled={disabled}>Submit</button>
+                    <button className='modal__submit-registration' type="submit" disabled={disabled}> УВІЙТИ</button>
                 </form>
             </div>
         </div>

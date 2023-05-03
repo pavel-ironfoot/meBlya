@@ -32,14 +32,31 @@
 }
 .login__footer{
     display: flex;
+    width: 448px;
+    margin: 0px auto;
+    justify-content: space-between;
 }
 .login__footer__checkbox{
-    padding-left: 150px;
+    input{
+        display:inline-block;
+        width:18px;
+        height:18px;
+        vertical-align:middle;
+        margin-right: 5px;
+        cursor:pointer;
+    }
+    color: #1F1F1F;
+    font-weight: 400;
+    font-size: 18px;
 }
 .login__footer__forgot{
-    padding-left: 50px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #004AA5;
+    cursor:pointer;
 }
 .login__registration{
-    color: blue;
+    color: #004AA5;
     margin-left: 10px;
+    cursor:pointer;
 }

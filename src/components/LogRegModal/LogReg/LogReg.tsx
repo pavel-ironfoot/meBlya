@@ -9,12 +9,12 @@ import { RootState } from "../../../storeToolkit";
 
 
 export const LogReg = () => {
-    const [modalType, setModalType] = useState('registration');
+    const [modalType, setModalType] = useState('login');
     
     const activeModal = useSelector((state: RootState) =>state.logReg.modalAction);
     
     useEffect(()=>{
-        if(activeModal===false)setModalType('registration');
+        if(activeModal===false)setModalType('login');
     },[activeModal])
     
     const setPopup = (value:string) => {

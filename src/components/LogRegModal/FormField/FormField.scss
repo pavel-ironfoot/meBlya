@@ -1,13 +1,37 @@
+.form-field{
+    margin-top: 10px;
+    input{
+        width: 448px;
+        font-size: 18px;
+        padding: 10px;
+        background-color: #EBE6D7;
+        border: 1px solid #D1C7A3;
+        border-radius: 4px;
+    }
+    label h3{
+        text-align: left;
+        font-size: 18px;
+        font-weight: 400;
+        margin: 5px;
+    }
+    .form-field__input{
+        margin: 0 auto;
+        width: fit-content;
+    }
+}
+
 .input__name {
     margin-bottom: 0px;
 }
 
 .change-password__input {
+    margin: 0 auto;
     width: fit-content;
     position: relative;
 }
 
 .change-password__watch {
     position: absolute;
-    left: 150px;
+    top: 40px;
+    left: 410px;
 }

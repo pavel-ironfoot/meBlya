@@ -54,10 +54,10 @@ export const ModalForgetPassword: React.FC<ModalForgetPasswordProps> = ({ setPop
                 <div onClick={() => dispatch(modalIsAction(false))} className='close__modal__x'>X</div>
                
                     <div>
-                        <h1>Login</h1>
+                        <h1>ВХІД</h1>
                         <FormField
-                            placeholder='Enter your email...'
-                            label='Email:'
+                            placeholder='Введіть електронну пошту'
+                            label='Електронна пошта'
                             type='email'
                             name='email'
                             id='email'
@@ -68,8 +68,8 @@ export const ModalForgetPassword: React.FC<ModalForgetPasswordProps> = ({ setPop
                             {emailLoginError === 'nomistake' ? '' : emailLoginError}
                         </p>
                     </div>
-                    <button disabled={disabled} onClick={handleSubmit}>Get temporary Password</button>
-                <p><span onClick={()=>setPopup('login')} className='login__registration'>I remember my password! </span> </p>
+                    <button className='modal__submit-registration' disabled={disabled} onClick={handleSubmit}>ОТРИМАТИ ТИМЧАСОВИЙ ПАРОЛЬ</button>
+                <p><span onClick={()=>setPopup('login')} className='login__registration'>Я згадав(ла) свій пароль </span> </p>
             </div>
         </div>
     );

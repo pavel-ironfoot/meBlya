@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { FormField } from '../../LogRegModal/FormField';
 import './Contactinformation.scss';
 import { contactInformationValue } from '../../../formValues/formValues';
-import { validationEmail, validationName, validationNameKir, validationNameKirLat, validationNumber } from '../../../validationFields/validation';
+import { validationEmail, validationNameKirLat, validationNumber } from '../../../validationFields/validation';
 import { useDispatch } from 'react-redux';
 import { addContactInformation } from '../../../storeToolkit/informationSlice';
 

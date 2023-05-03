@@ -21,16 +21,16 @@ export const FormField: React.FC<FormFieldProps> = ({ placeholder, label, value,
     }
 
     return (
-        <div>
-            {type === 'password'?
-                    <div className='change-password__input'>
-                    <label htmlFor='passwordd'>
+        <div className='form-field'>
+            {type === 'password' ?
+                <div className='change-password__input'>
+                    <label htmlFor={id}>
                         <h3 className="input__name">
-                        {label}
+                            {label}
                         </h3>
                     </label>
                     <input
-                        placeholder='Enter your password...'
+                        placeholder={placeholder}
                         type={changeType ? 'text' : 'password'}
                         name={name}
                         id={id}
@@ -38,8 +38,8 @@ export const FormField: React.FC<FormFieldProps> = ({ placeholder, label, value,
                         onChange={handleChange}
                     />
                     <img onClick={() => setChangeType(prev => !prev)} className='change-password__watch' src={changeType ? watchPassword : notwatchPassword} alt="see" />
-                </div>:
-                <div>
+                </div> :
+                <div className='form-field__input'>
                     <label htmlFor={id}>
                         <h3 className="input__name">
                             {label}
