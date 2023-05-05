@@ -48,7 +48,7 @@ export function validPassword(password:string) {
     if (!(/\d+/g.test(password))) {
         mistakes = mistakes + 'добавте цифри, ';
     }
-    if (!(/[!%?#$*]+/g.test(password))) {
+    if (!(/[&|@+!%?#$*]+/g.test(password))) {
         mistakes = mistakes + 'добавте спеціальні символи, '
     }
     return mistakes === '' ? 'nomistake' : mistakes;

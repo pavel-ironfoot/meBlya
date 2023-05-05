@@ -16,6 +16,10 @@
     .main-header__right-login{
         display: flex;
     }
+    .main-header__right-login__basket{
+        border:1px solid black;
+        padding-top: 28px;
+    }
 }
 .main-header__left-burger{
     display: flex;

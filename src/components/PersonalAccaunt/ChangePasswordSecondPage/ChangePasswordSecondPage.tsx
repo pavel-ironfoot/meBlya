@@ -35,17 +35,23 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data.id);
-                    fetch(`https://shyfonyer.shop/api/v1/user/update_password/${data.id}?old_password=${old_password}&new_password=${changePassword.password}`, {
+                    // fetch(`https://shyfonyer.shop/api/v1/user/update_password/${data.id}?old_password=${old_password}&new_password=${changePassword.password}`, {
+                       fetch(`https://shyfonyer.shop/api/v1/user/update_password/${data.id}`, {
                         method: 'PATCH',
                         headers: {
                             'Accept': 'application/json',
+                            'Content-Type': 'application/json',
                             'Authorization': `Bearer ${localStorage.getItem('token')}`,
                         },
+                        body: JSON.stringify({
+                            old_password: old_password,
+                            new_password: changePassword.password,
+                        })
                     })
-                        .then((response) => response.json())
-                        .then((data) => {
-                            console.log(data);
-                        });
+                        .then(response => response.json())
+                        .then(data => console.log(data))
+                        .catch(error => console.error(error))
+
                 });
 
         }
@@ -59,14 +65,13 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
             setEqualPassword(true);
         } else { setEqualPassword(false); }
 
-        if (passwordRegistrationError === 'nomistake' && confirmPasswordError === 'nomistake' && changePassword.password === changePassword.confirmPassword) {
+        if (passwordRegistrationError === 'nomistake' && changePassword.password === changePassword.confirmPassword) {
             setDisabled(false);
         } else { setDisabled(true); }
     }, [changePassword]);
 
     const passwordRegistrationError = useMemo(() => validPassword(changePassword.password), [changePassword.password]);
-    const confirmPasswordError = useMemo(() => validPassword(changePassword.confirmPassword), [changePassword.confirmPassword]);
-
+ 
     return (
         <div className='change-password-second-page'>
             <FormField
@@ -90,9 +95,7 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
                 value={changePassword.confirmPassword}
                 setChange={(value: any) => setRegistrationValue('confirmPassword', value)}
             />
-            <p className="red__mistake">
-                {confirmPasswordError === 'nomistake' ? '' : confirmPasswordError}
-            </p>
+
             {(changePassword.password !== '' && equalPassword) ? <p></p> : <p className="red__mistake">паролі не співпадають</p>}
 
             <NavLink to={'/show-page/personal-accaunt/ok-page'}>

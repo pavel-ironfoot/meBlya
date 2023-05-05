@@ -9,6 +9,7 @@ import { AllPopup } from "../../LogRegModal/AllPopup";
 import { BasketContainer } from "../../Basket/BasketContainer/BasketContainer";
 
 import './Header.scss';
+import { LogInAndBasket } from "../../Basket/LogInAndBasket";
 
 export const Header = () => {
 
@@ -34,15 +35,16 @@ export const Header = () => {
                     <h1>меБля</h1>
                 </NavLink>
             </div>
-            <div className="main-header__right-login">
+            {/* <div className="main-header__right-login">
                 <div>
                     <AllPopup />
                 </div>
-                <div>
+                <div  className="main-header__right-login__basket">
                     <img className='header__right-menu__basket' onClick={() => setShowBasket(true)} src={basketLogo} alt="basket" />
                     <BasketContainer active={showBasket} setActive={setShowBasket} />
                 </div>
-            </div>
+            </div> */}
+            <LogInAndBasket />
 
         </header>
     );

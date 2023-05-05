@@ -79,3 +79,27 @@ export const  getMeResource =async(url:string,token:string)=>{
           return false;
       }
   }
+
+  export const postResetPassword =async(url:string,email:string,token:string,newPassword:string)=>{
+    try{
+          const res = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: email,
+                token: token,
+                password: newPassword,
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        });
+          if(!res.ok){
+              console.error('Could not fetch',res.status);
+              return false;
+          }
+          return await res.json();
+      }catch(error:any){
+          console.log('Could not fetch',error.message);
+          return false;
+      }
+  }

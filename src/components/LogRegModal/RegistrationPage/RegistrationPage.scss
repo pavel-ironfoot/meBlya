@@ -21,6 +21,17 @@
         border-radius: 4px;
         padding: 10px;
     }
+    .modal__submit-registration:disabled{
+        width: 448px;
+        background-color: #d3c59b;
+        font-size: 18px;
+        font-weight: 400;
+        color: #aa9d95;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 4px;
+        padding: 10px;
+    }
 }
 .active {
     transform: scale(1);

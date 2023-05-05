@@ -8,6 +8,7 @@ import { FormField } from '../FormField';
 import { validPassword, validationConfirmToken, validationEmail } from '../../../validationFields/validation';
 
 import './ConfirmForgotPassword.scss';
+import { postResetPassword } from '../../../utils/helpfulFunction';
 
 interface ConfirmForgotPasswordProps {
     setPopup:(value:string)=>void;
@@ -18,32 +19,30 @@ export const ConfirmForgotPassword: React.FC<ConfirmForgotPasswordProps> = ({ se
     const activeModal = useSelector((state: RootState) =>state.logReg.modalAction);
     const [disabled, setDisabled] = useState(true);
     const [loginForm, setLoginForm] = useState(newLoginValue);
+    const [confirmForgotError,setConfirmForgotError] = useState<string>('');
 
     useEffect(()=>{
         if(localStorage.getItem('confirmEmail')) setLoginForm({...loginForm,'email':localStorage.getItem('confirmEmail')!})
     },[]);
 
+    const getResource = async (url: string, emailForm: string, token:string ,newPassword: string) => {
+        const res = await postResetPassword(url, emailForm,token, newPassword);
+        
+        if (res) {
+            setConfirmForgotError('');
+            setPopup('login');
+        } else {
+            setConfirmForgotError('щось пішло не так')
+        }
+
+    }
+
+
     const handleSubmit = async (e:any) => {
 
         e.preventDefault();
-        console.log('login is submit');
-        console.log(loginForm);
-        fetch('https://shyfonyer.shop/api/v1/user/password/reset', {
-            method: 'POST',
-            body: JSON.stringify({
-                email: loginForm.email,
-                token: loginForm.token,
-                password: loginForm.newPassword,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-            });
-        setPopup('login');
+        getResource('https://shyfonyer.shop/api/v1/user/password/reset',loginForm.email,loginForm.token,loginForm.newPassword)
+
     }
 
     const setLoginValue = (key:string, value:string) => {
@@ -103,6 +102,9 @@ export const ConfirmForgotPassword: React.FC<ConfirmForgotPasswordProps> = ({ se
                         />
                         <p className="red__mistake">
                             {newPasswordLoginError === 'nomistake' ? '' : newPasswordLoginError}
+                        </p>
+                        <p className="red__mistake">
+                            {confirmForgotError}
                         </p>
                     </div>
                     <button className='modal__submit-registration' type="submit" disabled={disabled}> УВІЙТИ</button>

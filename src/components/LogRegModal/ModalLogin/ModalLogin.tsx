@@ -49,19 +49,7 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
                 console.log('something going wrong');
                 setSomeErrorEmailPassword('хтось натупив');
             }
-            // fetch(`https://shyfonyer.shop/api/v1/user/me`, {
-            //     method: 'GET',
-            //     headers: {
-            //         'Accept': 'application/json',
-            //         'Authorization': `Bearer ${res.token}`,
-            //     },
-            // })
-            //     .then((response) => response.json())
-            //     .then((data) => {
-            //         dispatch(userEmail(data.email));
-            //         localStorage.setItem('loginUser', data.email);
-            //         dispatch(modalIsAction(false));
-            //     });   
+  
         } else {
             setSomeErrorEmailPassword('Ви ввели невірну електронну адресу чи пароль');
             console.log('something going wrong');
@@ -81,37 +69,7 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
         if (rememberMe) localStorage.setItem('saveMe', loginForm.email);
         console.log(loginForm);
         getResource('https://shyfonyer.shop/api/v1/auth/login_user', loginForm.email, loginForm.password);
-
-        // fetch('https://shyfonyer.shop/api/v1/auth/login_user', {
-        //     method: 'POST',
-        //     body: JSON.stringify({
-        //         email: loginForm.email,
-        //         password: loginForm.password,
-        //     }),
-        //     headers: {
-        //         'Content-type': 'application/json; charset=UTF-8',
-        //     },
-        // })
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //         if(data.token)dispatch(userIsLoggin(true));
-        //         dispatch(userToken(data.token));
-        //         localStorage.setItem('token', data.token);
-        //         /////////////////////////////////////////////
-        //         fetch(`https://shyfonyer.shop/api/v1/user/me`, {
-        //             method: 'GET',
-        //             headers: {
-        //                 'Accept': 'application/json',
-        //                 'Authorization': `Bearer ${data.token}`,
-        //             },
-        //         })
-        //             .then((response) => response.json())
-        //             .then((data) => {
-        //                 dispatch(userEmail(data.email));
-        //                 localStorage.setItem('loginUser', data.email);
-        //                 dispatch(modalIsAction(false));
-        //             });                
-        //     });            
+           
     }
 
     const rememberMeHandler = () => {

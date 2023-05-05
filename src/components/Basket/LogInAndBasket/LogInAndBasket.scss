@@ -1,0 +1,17 @@
+.login-basket{
+    display: flex;
+    .login-basket__basket{
+        padding: 4px;
+        border:1px solid black;
+        padding-top: 28px;
+        .login-basket__basket__image{
+            cursor: pointer;
+        }
+    }
+    .login-basket__basket__counter{
+        color: black;
+        font-size: 18px;
+        font-weight: 400;
+        margin-left: 2px;
+    }
+}
