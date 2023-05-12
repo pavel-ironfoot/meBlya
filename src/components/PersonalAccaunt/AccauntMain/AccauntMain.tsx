@@ -12,7 +12,9 @@ export const AccauntMain = () => {
 
     return (
         <div className='accaunt-main'>
-            <h1 className='accaunt-main__h1'>ОСОБИСТИЙ КАБІНЕТ</h1>
+            <div className='accaunt-main__title'>
+                <h1 className='accaunt-main__h1'>ОСОБИСТИЙ КАБІНЕТ</h1>
+            </div>
             <div className='accaunt-main__container'>
                 <Aside />
                 <div className='accaunt-main__main'>

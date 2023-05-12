@@ -11,7 +11,7 @@ export const CatalogHomePage = () => {
         <div className="katalog-home-page">
             <Header />
             <div className="under-header">
-                <h1>All Products</h1>
+                <h1>ВСІ ТОВАРИ</h1>
             </div>
             <div className='katalog-home-page__main-aside'>
                 <Aside />

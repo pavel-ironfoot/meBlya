@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import './MainCatalog.scss';
 import { divideArr } from '../../../utils/helpfulFunction';
 import { ImageCatalog } from '../ImageCatalog';
 import { RootState } from '../../../storeToolkit';
+import { companysTitles } from '../../../storeToolkit/companySlice';
 
 interface Product {
     id: number;
@@ -17,19 +18,24 @@ interface Product {
   }
 
 export const MainCatalog = () => {
+    const dispatch = useDispatch();
     const getPriceRange = useSelector((state: RootState) => state.companiesPrice.prices);
     const getCompany = useSelector((state: RootState) => state.companiesPrice.companys);
-
+    // console.log(getCompany);
     const { sorted } = useParams<{ sorted: string }>();
     const [sortedHelp,setSortedHelp] = useState<any>('main-katalog');
     const [mainProducts, setMainProducts] = useState<Product[]>([]);
     const [productsToShow,setProductsToShow] = useState<Product[]>([]);
     const [pageNumber, setPageNumber] = useState(1);
 
+
+
+    
+
     const pageNumbers: number[] = [1, 2];
 
     const paginationKatalog = pageNumbers.map((elem) => {
-        return <button key={elem} onClick={() => setPageNumber(elem)}>page {elem}</button>
+        return <button key={elem} onClick={() => setPageNumber(elem)}>сторінка {elem}</button>
     })
 
     useEffect(()=>{
@@ -37,7 +43,7 @@ export const MainCatalog = () => {
     },[sorted]);
 
     useEffect(() => {
-        console.log(sorted)
+        
         fetch('https://shyfonyer.shop/api/v1/products', {
             method: 'GET',
         })
@@ -65,6 +71,8 @@ export const MainCatalog = () => {
             case 'sorted=chip': setProductsToShow(mainProducts.sort((a, b) => +a.price > +b.price ? 1 : -1));
                 break;
             case 'sorted=expensive': setProductsToShow(mainProducts.sort((a, b) => +a.price < +b.price ? 1 : -1));
+                break;
+            case 'ikea': setProductsToShow(mainProducts.sort((a, b) => +a.price < +b.price ? 1 : -1));
                 break;
             default: setProductsToShow(mainProducts);
         }
@@ -133,7 +141,7 @@ export const MainCatalog = () => {
             <ImageCatalog photoUrl={elem.photo_url} />
             <div className='main-katalog__about'>
                 <div>{elem.company} {elem.name}</div>
-                <div>from {elem.price}</div>
+                <div className="main-katalog__all-products">від {elem.price}</div>
             </div>
         </div>
         </NavLink>
@@ -141,12 +149,12 @@ export const MainCatalog = () => {
 
     return (
         <div className="main-katalog">
-
-            <h3>{mainProducts? mainProducts.length: 'wait'} products</h3>
-
-            <hr />
+            <div className="main-katalog__count-products">
+                <h3>{mainProducts? mainProducts.length: 'wait'} товарів</h3>
+            </div>
+            
             <div className='main-katalog__pagination'>
-                {mainProducts.length>12?<>{paginationKatalog}</>:<button>page 1</button>}   
+                {mainProducts.length>12?<>{paginationKatalog}</>:<button>сторінка 1</button>}   
             </div>
             <div className="main-katalog__all-products">
                 {pageNumber === 1 ? (productsToShow && productsToShow.length > 0 ? showProducts.slice(0, 12) : <p>Fucking developer</p>)
@@ -154,7 +162,7 @@ export const MainCatalog = () => {
                 }
             </div>
             <div className='main-katalog__pagination'>
-                {mainProducts.length>12?<>{paginationKatalog}</>:<button>page 1</button>} 
+                {mainProducts.length>12?<>{paginationKatalog}</>:<button>сторінка 1</button>} 
             </div>
 
         </div>

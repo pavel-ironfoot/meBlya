@@ -9,9 +9,11 @@ import './Aside.scss';
 
 export const Aside: React.FC = () => {
     const dispatch = useDispatch();
-
+    
     const [checkboxCompanys,setCheckboxCompanys] = useState<string[]>([]);
     const [checkboxPrices,setCheckboxPrices] = useState<string[]>([]);
+
+
 
     const handleCompanyChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
         const {value,checked} = e.target;
@@ -24,7 +26,7 @@ export const Aside: React.FC = () => {
 
     useEffect(()=>{
         dispatch(pricesRangeSet(checkboxPrices));
-        dispatch(companysTitles(checkboxCompanys))
+        dispatch(companysTitles(checkboxCompanys));
     },[checkboxCompanys,checkboxPrices])
 
     const handlePricesChange = (e: React.ChangeEvent<HTMLInputElement>) =>{
@@ -54,25 +56,25 @@ export const Aside: React.FC = () => {
 
     return (
         <div className='aside-nav'>
-            <h3>sort</h3>
+            <h3>СОРТУВАННЯ</h3>
             <NavLink to={'/catalog/sorted=chip'}>
-                <p>from chip</p>
+                <p>ВІД ДЕШЕВИХ ДО ДОРОГИХ</p>
             </NavLink>
             <NavLink to={'/catalog/sorted=expensive'}>
-                <p>from expensive</p>
+                <p>ВІД ДОРОГИХ ДО ДЕШЕВИХ</p>
             </NavLink>
             <NavLink to={'/catalog/sorted=a-z'}>
-                <p>from a to z</p>
+                <p>ВІД А ДО Я</p>
             </NavLink>
             <NavLink to={'/catalog/sorted=z-a'}>
-                <p>from z to a</p>
+                <p>ВІД Я ДО А</p>
             </NavLink>
-            <h3>filters</h3>
+            <h3>ФІЛЬТРИ</h3>
 
-            <h2>manufacturer</h2>
+            <h2>ВИРОБНИК</h2>
             {checkboxCompany}
 
-            <h2>price</h2>
+            <h2>ЦІНА</h2>
             {checkboxPrice}
 
             <hr />

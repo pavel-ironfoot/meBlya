@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FormField } from '../../LogRegModal/FormField';
 import './EditPersonalData.scss';
-import { validationEmail, validationNameKir, validationNameKirLat, validationNumber } from '../../../validationFields/validation';
+import { validationEmail, validationNameKirLat, validationNumber } from '../../../validationFields/validation';
 import { NavLink } from 'react-router-dom';
 
 interface AllPersonalDataType {

@@ -21,15 +21,24 @@
         padding-top: 28px;
     }
 }
+.main-header__center-header{
+    a{
+        text-decoration: none;
+    }
+}
 .main-header__left-burger{
     display: flex;
 }
 .main-header__left-burger__catalog{
     margin-left: 20px;
+    a{
+        text-decoration: none;
+    }
 }
 .main-header__left-burger__catalog a{   
     text-decoration: none;
 }
 .main-header__left-burger__picture{
+    cursor: pointer;
     margin-top: 4px;
 }

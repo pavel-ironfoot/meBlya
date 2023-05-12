@@ -1,11 +1,25 @@
 .main-katalog{
     width: 80%;
-    button{
-        padding: 10px 15px;       
+    .main-katalog__count-products{
+        border-bottom: 1px solid #D1C7A3;
+        padding: 20px;
+        > h3{
+            font-size: 17px;
+            font-weight: 600;
+        }
     }
+
 }
 .main-katalog__all-products{
-
+    a{
+        text-decoration: none;
+        color: black;
+        font-size: 17px;
+        font-weight: 400;
+        .main-katalog__all-products{
+            color: #645832;
+        }
+    }
     display: flex;
     flex-wrap: wrap;
 }
@@ -27,4 +41,13 @@
 }
 .main-katalog__pagination{
     margin: 5px auto 5px 50px;
+    padding: 20px 0px;
+    > button{
+        border: 1px solid #D1C7A3;
+        font-size: 18px;
+        font-weight: 400;
+        border-radius: 4px;
+        margin-right: 10px;
+        cursor: pointer;
+    }
 }

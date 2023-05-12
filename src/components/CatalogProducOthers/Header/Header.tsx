@@ -35,17 +35,7 @@ export const Header = () => {
                     <h1>меБля</h1>
                 </NavLink>
             </div>
-            {/* <div className="main-header__right-login">
-                <div>
-                    <AllPopup />
-                </div>
-                <div  className="main-header__right-login__basket">
-                    <img className='header__right-menu__basket' onClick={() => setShowBasket(true)} src={basketLogo} alt="basket" />
-                    <BasketContainer active={showBasket} setActive={setShowBasket} />
-                </div>
-            </div> */}
             <LogInAndBasket />
-
         </header>
     );
 }

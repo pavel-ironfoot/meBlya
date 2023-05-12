@@ -45,7 +45,6 @@ export const MyOrders: React.FC = () => {
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log(data);
                     setAllOrders(data);
                 });
         } else {
@@ -60,9 +59,8 @@ export const MyOrders: React.FC = () => {
     return (
         <div className='my-orders'>
             {showPersonalOrders ? <div>
-                <h1>My Orders</h1>
                 {showAllOrders}
-            </div> : <p>to see your personal data you need to login</p>}
+            </div> : <p>щоб побачити інформацію потрібно зареєструватись</p>}
         </div>
     );
 }

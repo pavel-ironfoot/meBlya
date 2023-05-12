@@ -65,13 +65,13 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
             setEqualPassword(true);
         } else { setEqualPassword(false); }
 
-        if (passwordRegistrationError === 'nomistake' && changePassword.password === changePassword.confirmPassword) {
+        if (passwordRegistrationError === 'nomistake'  && changePassword.password === changePassword.confirmPassword) {
             setDisabled(false);
         } else { setDisabled(true); }
     }, [changePassword]);
 
     const passwordRegistrationError = useMemo(() => validPassword(changePassword.password), [changePassword.password]);
- 
+
     return (
         <div className='change-password-second-page'>
             <FormField
@@ -98,8 +98,8 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
 
             {(changePassword.password !== '' && equalPassword) ? <p></p> : <p className="red__mistake">паролі не співпадають</p>}
 
-            <NavLink to={'/show-page/personal-accaunt/ok-page'}>
-                <button onClick={handleSaveChanges} disabled={disabled}>ЗБЕРЕГТИ ЗМІНИ</button>
+            <NavLink to={'/personal-accaunt/ok-page'}>
+                <button  className='change-password-second-page__btn' onClick={handleSaveChanges} disabled={disabled}>ЗБЕРЕГТИ ЗМІНИ</button>
             </NavLink>
         </div>
     );

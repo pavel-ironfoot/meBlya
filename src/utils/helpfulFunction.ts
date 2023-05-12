@@ -103,3 +103,19 @@ export const  getMeResource =async(url:string,token:string)=>{
           return false;
       }
   }
+
+  export const getCompanyData =async(url:string)=>{
+    try{
+          const res = await fetch(url, {
+            method: 'GET',
+        });
+          if(!res.ok){
+              console.error('Could not fetch',res.status);
+              return false;
+          }
+          return await res.json();
+      }catch(error:any){
+          console.log('Could not fetch',error.message);
+          return false;
+      }
+  }

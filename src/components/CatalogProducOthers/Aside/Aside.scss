@@ -1,13 +1,42 @@
-.aside-nav{
-    padding: 10px;
+.aside-nav {
     padding-top: 100px;
     width: 480px;
-}
-.aside-nav h3{
-    border-bottom: 1px solid black;
-    border-top: 1px solid black;
-    margin: 5px;
-}
-.aside-nav p{
-    margin: 5px;
+    border-right: 1px solid #D1C7A3;
+    margin-right: 20px;
+
+    a {
+        text-decoration: none;
+    }
+
+    p {
+        padding: 10px 40px;
+        margin: 5px;
+        color: black;
+        font-size: 17px;
+        font-weight: 400;
+    }
+
+    h3 {
+        border-bottom: 1px solid #D1C7A3;
+        border-top: 1px solid #D1C7A3;
+        font-size: 17px;
+        font-weight: 600;
+        padding: 10px 30px;
+    }
+    h2{
+        font-size: 17px;
+        font-weight: 600;
+        padding: 10px 30px;
+    }
+
+    > * > label{
+        padding: 10px 7px;
+        color: black;
+        font-size: 17px;
+        font-weight: 400;
+    }
+
+    > * > input[type="checkbox"]{
+        transform: scale(1.5);
+    }
 }

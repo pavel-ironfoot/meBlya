@@ -1,18 +1,39 @@
 .product-page__main-form{
     padding: 40px;
+    .product-page__form-field__calculate-price{
+        color: #645832;
+        font-weight: 400;
+        font-size: 24px;
+        margin: 20px 0px;
+    }
+    .product-page__main-form__addToBasket{
+        width: 500px;
+        padding: 20px;
+        font-size: 20px;
+        background-color: #645832;
+        color: #EFEAE7;
+        font-size: 24px;
+        font-weight: 400;
+        border-radius: 4px;
+    }
+    .product-page__main-form__addToBasket:hover{
+        width: 500px;
+        padding: 20px;
+        font-size: 20px;
+        background-color: #80714a;
+        color: #EFEAE7;
+        font-size: 24px;
+        font-weight: 400;
+        border-radius: 4px;
+    }
 }
+
 .product-page__form-field{
     margin-top: 15px;
     margin-bottom: 15px;
 }
 .product-page__main-form p{
     margin-top: 15px;
-}
-.product-page__main-form .addToBasket{
-    width: 500px;
-    padding: 20px;
-    font-size: 20px;
-    background-color: #645832;
 }
 .product-page__checkbox{
     padding: 5px;

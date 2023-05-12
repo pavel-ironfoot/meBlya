@@ -11,37 +11,29 @@ export const Checkout: React.FC = () => {
     const [showDelivery, setShowDelivery] = useState<boolean>(false);
     const [showPayment, setShowPayment] = useState<boolean>(false);
 
-    return (
+    return (       
         <div className='checkout'>
             <div className='checkout-left'>
-                <h1 onClick={() => {
+                <h1 className='checkout-left__open-title checkout-left__open-title-cursor' onClick={() => {
                     setShowInformation(true);
                     setShowDelivery(false);
                     setShowPayment(false);
                 }}>
-                    1.Contact information
+                    1.  Контактна інформація 
                 </h1>
                 {showInformation ? <Contactinformation
                     openInformation={setShowInformation}
                     openPayment={setShowPayment}
                     openDelivery={setShowDelivery} /> : <></>}
-                <h1 onClick={() => {
-                    setShowInformation(false);
-                    setShowDelivery(true);
-                    setShowPayment(false);
-                }}>
-                    2.Delivery
+                <h1 className='checkout-left__open-title' >
+                    2. Доставка
                 </h1>
                 {showDelivery ? <Delivery
                     openInformation={setShowInformation}
                     openPayment={setShowPayment}
                     openDelivery={setShowDelivery} /> : <></>}
-                <h1 onClick={() => {
-                    setShowInformation(false);
-                    setShowDelivery(false);
-                    setShowPayment(true);
-                }}>
-                    3.Payment
+                <h1 className='checkout-left__open-title' >
+                    3.  Оплата
                 </h1>
                 {showPayment ? <Payment /> : <></>}
             </div>

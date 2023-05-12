@@ -7,6 +7,7 @@ import './Header.scss';
 import { ModalMenu } from '../../CatalogProducOthers/ModalMenu';
 import { useState } from 'react';
 import { BasketContainer } from '../../Basket/BasketContainer/BasketContainer';
+import { LogInAndBasket } from '../../Basket/LogInAndBasket';
 
 export const Header = () =>{
     const [showModalMenu,setShowModalMenu] = useState(false);
@@ -26,14 +27,8 @@ export const Header = () =>{
                 </div>
                 
                 <div className="header__right-menu">
-                    <div>
-                        <AllPopup />
-                    </div>
-                    <div>
-                        <img className='header__right-menu__basket' onClick={()=>setShowBasket(true)}  src={basketLogo} alt="basket" />
-                    </div>
-                   <BasketContainer active={showBasket} setActive={setShowBasket} />
-                </div>
+                <LogInAndBasket />
+                </div> 
             </div>
             
             <div className="header-slogan">

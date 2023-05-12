@@ -27,8 +27,7 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
 
     const [disabled, setDisabled] = useState(true);
     const [loginForm, setLoginForm] = useState<LoginValuetypes>(loginValue);
-    const [rememberMe, setRememberMe] = useState(false)
-    // const [someErrorEmailPassword,setSomeErrorEmailPassword] = useState<boolean>(false);
+    const [rememberMe, setRememberMe] = useState(false);
     const [someErrorEmailPassword, setSomeErrorEmailPassword] = useState<string>('');
 
     const getResource = async (url: string, emailForm: string, passwordForm: string) => {

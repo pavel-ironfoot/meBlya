@@ -4,15 +4,16 @@ import userSlice from "./userSlice";
 import isLogModalSlice from "./isLogModalSlice";
 import informationSlice from "./informationSlice";
 import counterBasketSlice from "./counterBasketSlice";
+import changeDisabledSlice from "./changeDisabledSlice";
 
 
 const rootReducer = combineReducers({
     companiesPrice:companySlice,
     userMe:userSlice,
     logReg:isLogModalSlice,
-    checkout:informationSlice,
-    
+    checkout:informationSlice,    
     counter:counterBasketSlice,
+    disabled:changeDisabledSlice,
 });
 
 export const store = configureStore({

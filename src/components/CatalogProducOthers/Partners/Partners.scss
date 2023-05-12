@@ -1,0 +1,91 @@
+.partners{
+    margin-top: 76px;
+    .partners-title{
+        padding: 20px 40px;
+        font-size: 107px;
+        text-transform: uppercase;
+    }
+    .partners__header{
+        padding-bottom: 20px;
+        padding-top: 20px;
+        display: flex;
+        justify-content: space-around;
+        border-bottom: 1px solid #D1C7A3;
+        border-top: 1px solid #D1C7A3;
+    }
+    .partners__main{
+        display: flex;
+        .partners__main__image-block{
+            border-right: 1px solid #D1C7A3;
+            padding: 20px;
+            img{
+                width: 100%;
+            }
+        }
+        .partners__main__block{
+            width: 50%;
+        }
+        .partners__main__content-block{
+            padding: 100px;
+            h2{
+                font-weight: 400px;
+                font-size: 52px;
+                margin-bottom: 20px;
+            }
+            p{
+                font-size: 18px;
+                font-weight: 300;
+            }
+        }
+    }
+
+    .partners__show-all{
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        border-top: 1px solid #D1C7A3;
+        border-bottom: 1px solid #D1C7A3;
+        padding: 20px;
+        font-size: 17px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .partners__footer{
+        display: flex;
+        .partners__footer__main-block{
+            width: 50%;
+        }
+        .partners__footer__contacts{
+            padding: 100px;
+            border-left: 1px solid #D1C7A3;
+            h1{
+                font-size: 107px;
+                text-align: left;
+                text-transform: uppercase;
+            }
+            p{
+                font-size: 18px;
+                font-weight: 400;
+            }
+            .partners__footer__contacts-block{
+                margin-top: 70px;
+            }
+            .partners__footer__one-block{
+                margin-top: 20px;
+                display: flex;
+                h1{
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+                .one-block-information{
+                    width: 50%;
+                }
+                p{
+                    width: fit-content;
+                }
+            }
+        }
+    }
+}

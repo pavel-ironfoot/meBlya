@@ -1,0 +1,27 @@
+.contact-information{
+    .contact-information__main-block{
+        display: flex;
+        .contact-information__input-block{
+            margin-right: 20px;
+        }
+
+        margin-bottom: 10px;
+    }
+    border-bottom: 1px solid #D1C7A3;
+    padding-bottom: 20px;
+    .form-field__input{
+        margin: 0px;
+    }
+    .contact-information__label{
+        font-size: 18px;
+        color: black;
+    }
+    button{
+        margin-top: 10px;
+        padding: 20px;
+        font-size: 18px;
+        color: #EFEAE7;
+        border-radius: 4px;
+        background-color: #645832;
+    }
+}

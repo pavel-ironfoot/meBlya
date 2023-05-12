@@ -78,7 +78,7 @@ export const PersonalData: React.FC = () => {
                 <button onClick={()=>setChangeMain(true)} className='personal-data__edit'>РЕДАГУВАТИ</button>
         </div>}</div>
              : <div>
-                <p>to see your personal data you need to login</p>
+                <p>щоб побачити інформацію потрібно зареєструватись</p>
             </div>}
         </div>
     );

@@ -183,7 +183,7 @@ export const BasketContainer: React.FC<BasketContainerProps> = ({ active, setAct
                 
 
                 {showBasketMenu ? <div>
-                    <h3>Your orders:</h3>
+                    <h3>Ваші замовлення:</h3>
                     {showOrders}
                     <div className='basket-container__total-price'>
                         <div>

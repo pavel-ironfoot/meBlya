@@ -4,41 +4,45 @@
     height: 500px;
     max-width: 1920px;
     height: 998px;
-}
-.header__nav{
-    padding: 22px;
-    padding-top: 70px;
-    display: flex;
-    justify-content: space-between;
-    .header__right-menu{
+    .header__nav{
+        padding: 22px;
+        padding-top: 70px;
         display: flex;
+        justify-content: space-between;
+        .header__left-menu > img{
+            cursor: pointer;
+        }
+        .header__right-menu{
+            display: flex;
+        }
+    }
+    .header-slogan{
+        margin-top: 170px;
+    }
+    .header-slogan h1{
+        text-align: center;
+        color: white;
+        font-family: 'PP Neue World';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 60px;
+        font-family: "PP Neue World";
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    .header-slogan button{
+        background: #EBE6D7;
+        width: 178px;
+        height: 44px;
+        display: block;
+        margin: 10px auto;
+        border: none;
+        border-radius: 4px;
+        padding: 10px;
+    }
+    .central-menu{
+        color: white;
     }
 }
-.header-slogan{
-    margin-top: 170px;
-}
-.header-slogan h1{
-    text-align: center;
-    color: white;
-    font-family: 'PP Neue World';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 60px;
-    font-family: "PP Neue World";
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 0px;
-}
-.header-slogan button{
-    background: #EBE6D7;
-    width: 178px;
-    height: 44px;
-    display: block;
-    margin: 10px auto;
-    border: none;
-    border-radius: 4px;
-    padding: 10px;
-}
-.central-menu{
-    color: white;
-}
+

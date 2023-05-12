@@ -1,7 +1,40 @@
 .checkout-basket__one_order{
+    .checkout-basket__one_order__right-block{
+        padding: 10px;
+        p{
+            color: #807657;
+            font-size: 17px;
+            padding-bottom: 4px;
+        }
+        span{
+            color:black
+        }
+    }
     margin-bottom: 10px;
     display: flex;
     img{
         width: 160px;
+    }
+}
+
+.checkout-basket{
+    .checkout-basket__total_summ{
+        color: black;
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+    .checkout-basket__submit{
+        background-color: #645832;
+        font-size: 18px;
+        color: white;
+        padding: 20px;
+        width: 100%;
+    }
+    .checkout-basket__submit:disabled{
+        background-color: #c5bda6;
+        font-size: 18px;
+        color: rgb(218, 214, 194);
+        padding: 20px;
+        width: 100%;
     }
 }

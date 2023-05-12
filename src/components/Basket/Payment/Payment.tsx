@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Payment.scss';
 import { useDispatch } from 'react-redux';
 import { addAddress } from '../../../storeToolkit/informationSlice';
+import { changeDisabledConfirm } from '../../../storeToolkit/changeDisabledSlice';
 
 
 export const Payment: React.FC = () => {
@@ -12,8 +13,10 @@ export const Payment: React.FC = () => {
         const { value, checked } = e.target;
         if (checked) {
             setPaymentType(value);
+            dispatch(changeDisabledConfirm(true));
         }
     }
+
 
     useEffect(()=>{
             dispatch(addAddress(paymentType));
@@ -23,10 +26,10 @@ export const Payment: React.FC = () => {
     return (
         <div className='payment'>
             <input onChange={handlePaymentChange} type="radio" name='payment-cash' id="cash" value={0} />
-            <label htmlFor="cash">Готівкою при отриманні</label>
+            <label className='payment-label' htmlFor="cash">Готівкою при отриманні</label>
             <br />
             <input onChange={handlePaymentChange} type="radio" name='payment-cash' id="card" value={1} />
-            <label htmlFor="card">Безготівковий розрахунок при отриманні</label>
+            <label className='payment-label' htmlFor="card">Безготівковий розрахунок при отриманні</label>
         </div>
     );
 }

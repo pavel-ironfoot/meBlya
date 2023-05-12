@@ -1,17 +1,7 @@
-// export const validationName = (name:string) => {
-//     let mistake = '';
-//     if (name === '') return 'empty'; // return 'empty'
-//     if (/^[A-Z]/.test(name) && /\w\w/ig.test(name) && /^[a-z]*$/i.test(name)) return 'nomistake';
-//     if (!/^[A-Z]/.test(name)) mistake += 'small first letter, ';
-//     if (!/\w\w/ig.test(name)) mistake += 'more letters, '
-//     if (!/^[a-z]*$/i.test(name)) mistake += 'only latins letters, '
-//     return mistake;
-// }
-
-
 export const validationEntrance = (number: string)=>{
     let mistake ='';
     if (number === '') return 'порожнє поле';
+    if (/^\d+$/.test(number)) return 'nomistake';
     if(!/^\d+$/.test(number)) mistake = 'тільки числа';
     return mistake;
 }
@@ -48,7 +38,7 @@ export function validPassword(password:string) {
     if (!(/\d+/g.test(password))) {
         mistakes = mistakes + 'добавте цифри, ';
     }
-    if (!(/[&|@+!%?#$*]+/g.test(password))) {
+    if (!(/[&|@.,><_\-\^+!%?\#$*]+/g.test(password))) {
         mistakes = mistakes + 'добавте спеціальні символи, '
     }
     return mistakes === '' ? 'nomistake' : mistakes;
@@ -58,28 +48,28 @@ export const validationNumber = (number:string) => {
     if (number === '') return ''; // return 'empty'
     if (!(/^\d\d{8}\d$/gi.test(number) || /^\d\d{10}\d$/gi.test(number))) return 'Некоректний формат даних ';
     if (/^\d\d{8}\d$/gi.test(number)) {
-        if (!(/^0[96][3687]\d{6}\d$/gm.test(number))) {
+        if (!(/^0[3965][0123456789]\d{6}\d$/gm.test(number))) {
             return 'Некоректний формат даних ';
         } else {
 
         }
     } else if (/^\d\d{10}\d$/gi.test(number)) {
-        if (!(/^380[96][3687]\d{6}\d$/gm.test(number))) {
+        if (!(/^380[3965][0123456789]\d{6}\d$/gm.test(number))) {
             return 'Некоректний формат даних ';
         }
     }
     return 'nomistake';
 }
 
-export const validationNameKir = (name:string) => {
-    let mistake = '';
-    if (name === '') return 'empty'; // return 'empty'
-    if (/^[А-Я]/.test(name) && /[\wа-яА-Я]{2}/ig.test(name) && /^[а-я]*$/i.test(name)) return 'nomistake';
-    if (!/^[А-Я]/.test(name)) mistake += 'small first letter, ';
-    if (!/[\wа-яА-Я]{2}/ig.test(name)) mistake += 'more letters, '
-    if (!/^[а-я]*$/i.test(name)) mistake += 'only kirillitsa letters, '
-    return mistake;
-}
+// export const validationNameKir = (name:string) => {
+//     let mistake = '';
+//     if (name === '') return 'empty'; // return 'empty'
+//     if (/^[А-Я]/.test(name) && /[\wа-яА-Я]{2}/ig.test(name) && /^[а-я]*$/i.test(name)) return 'nomistake';
+//     if (!/^[А-Я]/.test(name)) mistake += 'small first letter, ';
+//     if (!/[\wа-яА-Я]{2}/ig.test(name)) mistake += 'more letters, '
+//     if (!/^[а-я]*$/i.test(name)) mistake += 'only kirillitsa letters, '
+//     return mistake;
+// }
 
 
   export const validationNameKirLat = (name:string) => {
