@@ -9,6 +9,10 @@
     transform: scale(0);
     justify-content: center;
     /* transition: 2s; */
+    a{
+        text-decoration: none;
+        color: black;
+    }
 }
 .active-menu {
     transform: scale(1);

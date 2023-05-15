@@ -28,7 +28,7 @@ export const ModalMenu: React.FC<ModalMenuProps> = ({ active, setActive }) => {
                     </div>
                     <div className='modal-menu__content__menu'>
                         <h1>КЛІЄНТАМ</h1>
-                        <p>ПРО НАС</p>
+                        <NavLink onClick={()=>setActive(false)} to={'/show-page/about-us'}><p>ПРО НАС</p></NavLink>
                         <p>F.A.Q.</p>
                         <p>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</p>
                     </div>

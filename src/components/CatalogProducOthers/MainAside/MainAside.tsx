@@ -9,6 +9,7 @@ import { Checkout } from "../../Basket/Checkout";
 import { AccauntMain } from "../../PersonalAccaunt/AccauntMain";
 import { CheckoutSuccessfully } from "../../Basket/CheckoutSuccessfully";
 import { Partners } from "../Partners";
+import { AboutUs } from "../AboutUs";
 
 export const MainAside = () =>{
     return (
@@ -20,6 +21,7 @@ export const MainAside = () =>{
                 <Route path='/personal-accaunt/*' element={<AccauntMain />} />
                 <Route path='/checkout-successfully' element={<CheckoutSuccessfully />} />
                 <Route path='/partners/:partner' element={<Partners />} />
+                <Route path='/about-us' element={<AboutUs />} />
             </Routes>
             <Footer />
         </div>

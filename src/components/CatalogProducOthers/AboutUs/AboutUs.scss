@@ -1,0 +1,28 @@
+.about-us {
+    margin-top: 76px;
+
+    .about-us__header {
+        background-image: url(../../../images/aboutus/image117.png);
+        background-repeat: no-repeat;
+        height: 998px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .about-us__header-in {           
+            font-weight: 400;
+            font-size: 50px;
+            color: #FFFFFF;
+            letter-spacing: -0.02em;
+            h1{
+                text-align: center;
+            }
+        }
+    }
+    .about-us__main{
+        > div{
+            border-right: 1px solid #D1C7A3;
+            width: 50%;
+        }
+    }
+}
