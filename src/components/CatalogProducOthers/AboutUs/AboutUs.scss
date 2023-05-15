@@ -20,9 +20,42 @@
         }
     }
     .about-us__main{
+        display: flex;
         > div{
             border-right: 1px solid #D1C7A3;
             width: 50%;
+        }
+        .about-us__main__photo{
+            padding: 20px;
+        }
+        .about-us__main__text{
+            padding: 100px;
+            >h3{
+                font-weight: 400px;
+                font-size: 52px;
+                margin-bottom: 20px;
+            }
+            >p{
+                font-weight: 300px;
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            .about-us__main__text__button{
+                margin-top: 50px;
+                cursor: pointer;
+                background-color: #EBE6D7;
+                font-weight: 400px;
+                font-size: 18px;
+                border: none;
+            }
+        }
+    }
+    .about-us__main__growth{
+        padding: 100px;
+        background-color: #807657;
+        .about-us__main__growth__period{
+            border-top: 1px solid #FFFFFF;
+            display: flex;
         }
     }
 }

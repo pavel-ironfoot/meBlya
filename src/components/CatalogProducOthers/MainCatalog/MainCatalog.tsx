@@ -1,13 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useLocation, useParams } from 'react-router';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 import './MainCatalog.scss';
 import { divideArr } from '../../../utils/helpfulFunction';
 import { ImageCatalog } from '../ImageCatalog';
 import { RootState } from '../../../storeToolkit';
-import { companysTitles } from '../../../storeToolkit/companySlice';
 
 interface Product {
     id: number;
@@ -18,10 +17,17 @@ interface Product {
   }
 
 export const MainCatalog = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [location.pathname]);
+
     const getPriceRange = useSelector((state: RootState) => state.companiesPrice.prices);
     const getCompany = useSelector((state: RootState) => state.companiesPrice.companys);
-    // console.log(getCompany);
+    
     const { sorted } = useParams<{ sorted: string }>();
     const [sortedHelp,setSortedHelp] = useState<any>('main-katalog');
     const [mainProducts, setMainProducts] = useState<Product[]>([]);

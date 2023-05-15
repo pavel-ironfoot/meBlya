@@ -32,7 +32,7 @@ export const Footer = () => {
                 </div>
             </div>
             <div className='main-footer__title'>
-                        <h1>меБля</h1>
+                        <h1>SHYFON’YER</h1>
                 </div>   
                 <div className='main-footer__footer'>
                     <div>

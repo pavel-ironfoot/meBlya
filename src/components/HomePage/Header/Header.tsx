@@ -23,7 +23,7 @@ export const Header = () =>{
                 </div>
 
                 <div className="central-menu">
-                    <h1>меБля</h1>
+                    <h1>SHYFON’YER</h1>
                 </div>
                 
                 <div className="header__right-menu">

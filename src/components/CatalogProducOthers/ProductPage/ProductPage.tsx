@@ -1,4 +1,4 @@
-import { useParams } from 'react-router';
+import { useLocation, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { recomendationFour } from '../../../utils/helpfulFunction';
@@ -16,6 +16,13 @@ interface Product {
   }
 
 export const ProductPage: React.FC = () => {
+
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [location.pathname]);
+
     const {productId} = useParams();
     const [oneProductPhoto,setOneProductPhoto] = useState();
     const [recomendationProducts, setRecomendationProducts] = useState<Product[]>([]);
