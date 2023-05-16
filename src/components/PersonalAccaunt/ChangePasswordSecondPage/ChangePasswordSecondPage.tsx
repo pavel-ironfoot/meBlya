@@ -98,7 +98,7 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
 
             {(changePassword.password !== '' && equalPassword) ? <p></p> : <p className="red__mistake">паролі не співпадають</p>}
 
-            <NavLink to={'/personal-accaunt/ok-page'}>
+            <NavLink to={'/show-page/personal-accaunt/ok-page'}>
                 <button  className='change-password-second-page__btn' onClick={handleSaveChanges} disabled={disabled}>ЗБЕРЕГТИ ЗМІНИ</button>
             </NavLink>
         </div>

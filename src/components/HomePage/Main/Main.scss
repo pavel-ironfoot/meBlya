@@ -9,16 +9,19 @@
 .main-container__info{
     width: 1000px;
     height: 429px;
+    >h1{
+        font-family: 'PP Neue World';
+        font-style: normal;
+        font-weight: 400;
+        transform: scaleX(0.6);
+        letter-spacing: -0.02em;
+        word-spacing: 20px;
+        font-size: 120px;
+        line-height: 87%;
+    }
 }
-.main-container__info h1{
-    font-family: 'PP Neue World';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 95px;
-    text-align: center;
-    color: #1F1F1F;
-    line-height: 87%;
-}
+
+
 .main-container__info p{
     font-family: 'Open Sans';
     font-style: normal;

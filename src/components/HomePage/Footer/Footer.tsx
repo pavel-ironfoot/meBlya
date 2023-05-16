@@ -23,7 +23,7 @@ export const Footer = () => {
                     <h1>КЛІЄНТАМ</h1>
                     <NavLink to={'/show-page/about-us'}><p>ПРО НАС</p></NavLink>
                     <p>F.A.Q.</p>
-                    <p>PRIVACY POLICY</p>
+                    <p>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</p>
                 </div>
                 <div className='main-footer__menu'>
                     <h1>КОНТАКТНІ ДАНІ</h1>
