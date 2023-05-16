@@ -18,8 +18,10 @@
     }
     .header-slogan{
         margin-top: 170px;
-        z-index: 1;
         a{
+            button{
+                cursor: pointer;
+            }
             text-decoration: none;
         }
     }

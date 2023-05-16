@@ -3,7 +3,7 @@
     width:100vw;
     background-color: rgba(0, 0, 0, 0.700);
     position: fixed;
-    top: 76px;
+    top: 0;
     left: 0;
     display: flex;
     transform: scale(0);
@@ -19,7 +19,7 @@
     transform: scale(1);
 }
 .modal-menu__content{
-    margin-top: 0px;
+    margin-top: 76px;
     margin-left: -1%;
     background-color: #EBE6D7;
     width: 100%;

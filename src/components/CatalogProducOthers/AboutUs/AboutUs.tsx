@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import { useEffect } from 'react';
+
 import mainImg from './../../../images/aboutus/about2.png';
 import portrait from './../../../images/aboutus/portrait.png';
 import signature from './../../../images/aboutus/signature.png';
@@ -6,6 +8,10 @@ import signature from './../../../images/aboutus/signature.png';
 import './AboutUs.scss';
 
 export const AboutUs = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
     return (
         <div className="about-us">
             <header className="about-us__header">

@@ -1,32 +1,100 @@
 .main-container{
     background-color: #EBE6D7;
+    width: 100%;
     height: 1256px;
     display: flex;
     justify-content: center;
     align-items: center;
-    
-}
-.main-container__info{
-    width: 1000px;
-    height: 429px;
-    >h1{
-        font-family: 'PP Neue World';
-        font-style: normal;
-        font-weight: 400;
-        transform: scaleX(0.6);
-        letter-spacing: -0.02em;
-        word-spacing: 20px;
-        font-size: 120px;
-        line-height: 87%;
+    position: relative;
+    .main-container__info{
+        width: 900px;
+        height: fit-content;
+        .main-container__info-title{
+            text-align: center;
+            font-family: 'PP Neue World';
+            font-style: normal;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            word-spacing: 20px;
+            font-size: 94px;
+            line-height: 87%;
+        }
+        .main-container__info-p{
+            margin-top: 20px;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 135%;
+            text-align: center;
+        }
+        a{           
+            text-decoration: none;
+        }
+        button{
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+            padding: 10px 34px;
+            border: 1px dotted #D1C7A3;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 135%;
+            background-color: #EBE6D7;
+            cursor: pointer;
+        }
+        button:hover{
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+            padding: 10px 34px;
+            border: 1px dotted #665f47;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 135%;
+            background-color: #EBE6D7;
+            cursor: pointer;
+        }
     }
-}
+    .main-container__picture12{
+        position:absolute;
+        top: 20px;
+        left: 40%;
+        width: 22%;
+    }
+    .main-container__picture10{
+        position:absolute;
+        top: 370px;
+        left: 5%;
+        width: 15%;
+    }
+    .main-container__picture8{
+        position:absolute;
+        top: 680px;
+        left: 1%;
+        width: 24%;
+    }
+    .main-container__picture5{
+        position:absolute;
+        bottom: 70px;
+        right: 20%;
+        width: 22%;
+    }
+    .main-container__picture3{
+        position:absolute;
+        top: 620px;
+        right: 0px;
+        width: 15%;
+    }
+    .main-container__picture2{
+        position:absolute;
+        top: 250px;
+        left: 78%;
+        width: 13%;
+    }
 
-
-.main-container__info p{
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 300;
-    font-size: 18px;
-    line-height: 135%;
-    text-align: center;
 }

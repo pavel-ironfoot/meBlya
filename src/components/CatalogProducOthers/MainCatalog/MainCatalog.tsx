@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import './MainCatalog.scss';
 import { divideArr } from '../../../utils/helpfulFunction';
 import { ImageCatalog } from '../ImageCatalog';
 import { RootState } from '../../../storeToolkit';
+
+import './MainCatalog.scss';
 
 interface Product {
     id: number;
@@ -17,13 +18,10 @@ interface Product {
   }
 
 export const MainCatalog = () => {
-    // const dispatch = useDispatch();
-
-    const location = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, [location.pathname]);
+      }, []);
 
     const getPriceRange = useSelector((state: RootState) => state.companiesPrice.prices);
     const getCompany = useSelector((state: RootState) => state.companiesPrice.companys);
@@ -33,10 +31,6 @@ export const MainCatalog = () => {
     const [mainProducts, setMainProducts] = useState<Product[]>([]);
     const [productsToShow,setProductsToShow] = useState<Product[]>([]);
     const [pageNumber, setPageNumber] = useState(1);
-
-
-
-    
 
     const pageNumbers: number[] = [1, 2];
 
