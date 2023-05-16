@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import './Footer.scss';
 
 export const Footer = () => {
@@ -5,33 +6,33 @@ export const Footer = () => {
         <footer className='main-footer'>
             <div className='main-footer__main-menu'>
                 <div className='main-footer__menu'>
-                    <h1>MENU</h1>
-                    <p>MAIN</p>
-                    <p>CATALOG</p>
-                    <p>CONTACTS</p>
-                    <p>PERSONAL ACCAUNT</p>
+                    <h1>МЕНЮ</h1>
+                    <NavLink to={'/'}><p>ГОЛОВНА</p></NavLink>
+                        <NavLink to={'/catalog/main-catalog'}><p>КАТАЛОГ</p></NavLink> 
+                        <p>КОНТАКТИ</p>
+                        <NavLink to={`/show-page/personal-accaunt`}><p>ОСОБИСТИЙ КАБІНЕТ</p></NavLink>
                 </div>
                 <div className='main-footer__menu'>
-                    <h1>PARTNERS</h1>
-                    <p>IKEA</p>
-                    <p>JYSK</p>
-                    <p>BLUM</p>
-                    <p>KOLSS</p>
+                    <h1>ПАРТНЕРИ</h1>
+                    <NavLink to={'/show-page/partners/ikea'}><p>IKEA</p></NavLink>
+                    <NavLink to={'/show-page/partners/jysk'}><p>JYSK</p></NavLink>
+                    <NavLink to={'/show-page/partners/blum'}><p>BLUM</p></NavLink>
+                    <NavLink to={'/show-page/partners/kolss'}><p>KOLSS</p></NavLink>
                 </div>
                 <div className='main-footer__menu'>
-                    <h1>FOR CLIENTS</h1>
-                    <p>ABOUT US</p>
+                    <h1>КЛІЄНТАМ</h1>
+                    <NavLink to={'/show-page/about-us'}><p>ПРО НАС</p></NavLink>
                     <p>F.A.Q.</p>
                     <p>PRIVACY POLICY</p>
                 </div>
                 <div className='main-footer__menu'>
-                    <h1>CONTACT DETAILS</h1>
+                    <h1>КОНТАКТНІ ДАНІ</h1>
                     <p>+380 (77) 777 77 77</p>
                     <p>shyfonyersales@info.com</p>
                     <p>місто Черкаси, вул. П. Сагайдачного 150/2, 18005</p>
                 </div>
             </div>
-            <div className='main-footer__title'>
+                <div className='main-footer__title'>
                         <h1>SHYFON’YER</h1>
                 </div>   
                 <div className='main-footer__footer'>
@@ -39,7 +40,7 @@ export const Footer = () => {
                         <p>© SHYFON’YER | 2023</p> 
                     </div>
                     <div>
-                        <p>DESIGN & DEV: GEEKHUB INTERNS</p>
+                        <p>front-end dev: PAVEL IRONFOOT</p>
                     </div>
                 </div>         
         </footer>

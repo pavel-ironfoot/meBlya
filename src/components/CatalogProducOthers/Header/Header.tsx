@@ -32,7 +32,7 @@ export const Header = () => {
             </div>
             <div className="main-header__center-header">
                 <NavLink to={'/'}>
-                    <h1>SHYFON’YER</h1>
+                    <h1 className="main-header__center-header__title">SHYFON’YER</h1>
                 </NavLink>
             </div>
             <LogInAndBasket />

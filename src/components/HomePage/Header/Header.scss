@@ -18,20 +18,28 @@
     }
     .header-slogan{
         margin-top: 170px;
+        z-index: 1;
+        a{
+            text-decoration: none;
+        }
     }
-    .header-slogan h1{
-        text-align: center;
+    .header-slogan >h1{
         color: white;
         font-family: 'PP Neue World';
+        transform: scaleX(0.6);
         font-style: normal;
         font-weight: 400;
-        font-size: 60px;
-        font-family: "PP Neue World";
+        font-size: 140px;
         text-align: center;
         margin-top: 0px;
         margin-bottom: 0px;
+        letter-spacing: -0.02em;
+        word-spacing: 20px;
     }
     .header-slogan button{
+        color: black;
+        font-size: 18px;
+        font-weight: 400;
         background: #EBE6D7;
         width: 178px;
         height: 44px;
@@ -42,7 +50,14 @@
         padding: 10px;
     }
     .central-menu{
-        color: white;
+        >h1{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 36px;
+            line-height: 90%;
+            color: white;
+        }
     }
 }
 

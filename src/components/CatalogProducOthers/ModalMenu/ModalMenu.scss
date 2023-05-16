@@ -15,17 +15,20 @@
     }
 }
 .active-menu {
+    z-index: 100;
     transform: scale(1);
 }
 .modal-menu__content{
     margin-top: 0px;
+    margin-left: -1%;
     background-color: #EBE6D7;
-    width: 1920px;
+    width: 100%;
+    max-width: 1920px;
     height: 611px;
     display: flex;   
 }
 .modal-menu__left-block{
-    width: 1142px;
+    flex-grow: 4;
     display: flex;
     justify-content: space-around;
     padding-top: 100px;
@@ -43,7 +46,7 @@
     padding-left: 54px;
     text-align: left;
     color: #FFFFFF;
-    width: 778px;
+    flex-grow: 3;
     background-image: url('../../../images/header/modal-menu.png');
 }
 .modal-menu__picture-block p{

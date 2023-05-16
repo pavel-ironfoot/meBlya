@@ -4,7 +4,7 @@
     z-index: 100;
     width: 100%;
     border: 1px solid #D1C7A3;
-    width: 1920px;
+    max-width: 1920px;
     text-align: center;
     height: 76px;
     padding-top: 15px;
@@ -22,9 +22,16 @@
     }
 }
 .main-header__center-header{
-    a{
+    >a{
         color: black;
         text-decoration: none;
+        .main-header__center-header__title{
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 36px;
+            line-height: 90%;
+        }
     }
 }
 .main-header__left-burger{
@@ -34,6 +41,7 @@
     margin-left: 20px;
     a{
         text-decoration: none;
+        color: black;
     }
 }
 .main-header__left-burger__catalog a{   

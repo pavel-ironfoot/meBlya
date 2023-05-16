@@ -9,38 +9,53 @@
         justify-content: center;
         align-items: center;
 
-        .about-us__header-in {           
+        .about-us__header-in {
             font-weight: 400;
             font-size: 50px;
             color: #FFFFFF;
             letter-spacing: -0.02em;
-            h1{
+
+            >h1 {
+                font-family: 'PP Neue World';
+                transform: scaleX(0.6);
+                font-style: normal;
+                font-weight: 400;
+                font-size: 140px;
                 text-align: center;
+                letter-spacing: -0.02em;
+                word-spacing: 20px;
             }
         }
     }
-    .about-us__main{
+
+    .about-us__main {
         display: flex;
-        > div{
+
+        >div {
             border-right: 1px solid #D1C7A3;
             width: 50%;
         }
-        .about-us__main__photo{
+
+        .about-us__main__photo {
             padding: 20px;
         }
-        .about-us__main__text{
+
+        .about-us__main__text {
             padding: 100px;
-            >h3{
+
+            >h3 {
                 font-weight: 400px;
                 font-size: 52px;
                 margin-bottom: 20px;
             }
-            >p{
+
+            >p {
                 font-weight: 300px;
                 font-size: 18px;
                 margin-bottom: 20px;
             }
-            .about-us__main__text__button{
+
+            .about-us__main__text__button {
                 margin-top: 50px;
                 cursor: pointer;
                 background-color: #EBE6D7;
@@ -50,12 +65,107 @@
             }
         }
     }
-    .about-us__main__growth{
+
+    .about-us__main__growth {
         padding: 100px;
         background-color: #807657;
-        .about-us__main__growth__period{
+
+        .about-us__main__growth__title {
+            margin-bottom: 60px;
+
+            >h1 {
+                font-size: 52px;
+                font-weight: 400;
+                color: white;
+            }
+        }
+
+        .about-us__main__growth__period {
             border-top: 1px solid #FFFFFF;
             display: flex;
+            justify-content: space-between;
+            padding: 20px 100px 20px 0px;
+
+            >div {
+                width: 500px;
+
+                >p {
+                    font-size: 18px;
+                    font-weight: 400;
+                    color: white;
+                }
+
+                >h4 {
+                    font-size: 54px;
+                    font-weight: 400;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .about-us__footer {
+        display: flex;
+        padding-right: 100px;
+
+        .about-us__footer__photo {
+            padding: 0px;
+        }
+        .about-us__footer__text{
+            padding-top: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .about-us__footer__text-title{
+
+                          >h3{
+                margin-left: 0px;
+                font-family: 'PP Neue World';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 90px;
+                line-height: 90%;
+                color: black;
+                transform: scaleX(0.6);
+                letter-spacing: -0.02em;
+                word-spacing: 10px;
+            }  
+            }
+
+            .about-us__footer__text-block {
+                display: flex;
+    
+                .about-us__footer__idea {
+                    border-top: 1px solid #D1C7A3;
+                    border-right: 1px solid #D1C7A3;
+                    padding: 50px;
+    
+                    >p {
+                        flex-grow: 1;
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 400;
+                        font-size: 17px;
+                        line-height: 110%;
+                        text-transform: uppercase;
+                    }
+                }
+    
+                .about-us__footer__proud {
+                    border-top: 1px solid #D1C7A3;
+                    padding: 50px 20px;
+                    
+                    >p {
+                        flex-grow: 1;
+                        font-family: 'Open Sans';
+                        font-style: normal;
+                        font-weight: 300;
+                        font-size: 18px;
+                        line-height: 135%;
+                        margin-bottom: 20px;
+                    }
+                }
+            }
         }
     }
 }

@@ -198,7 +198,7 @@ export const BasketContainer: React.FC<BasketContainerProps> = ({ active, setAct
                         {dataBasket.length === 0 ? <></> : <NavLink onClick={() => setActive(false)} to={`/show-page/checkout`}><div className='basket-container__make-an-order__submit'><h2>ОФОРМИТИ ЗАМОВЛЕННЯ</h2></div></NavLink>}
                     </div>
                 </div> :
-                    <h3>You need to logIn</h3>}
+                    <h3>Щоб рухатись далі будь ласка, авторизуйтесь.</h3>}
             </div>
         </div>
     );
