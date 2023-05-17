@@ -1,0 +1,96 @@
+.our-partners-page {
+    margin-top: 76px;
+    a{
+        text-decoration: none;
+    }
+    button{
+        cursor: pointer;
+        border: none;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 90%;
+        background-color: #EBE6D7;
+        display: block;
+        margin: 105px auto auto auto;
+    }
+    >h1 {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        text-align: center;
+        font-family: 'PP Neue World';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 140px;
+        line-height: 90%;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #1F1F1F;
+        word-spacing: 20px;
+    }
+    .our-partners-page__partner-left-image{
+        display: flex;
+        >div{
+            border-right: 1px solid #D1C7A3;
+            border-bottom: 1px solid #D1C7A3;
+            border-top: 1px solid #D1C7A3;
+            width: 50%;
+            >h3{
+                font-family: 'PP Neue World';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 107px;
+                line-height: 100%;
+                margin-top: 194px;
+                margin-bottom: 105px;
+                text-align: center;
+            }
+            >p{
+                text-align: center;
+                margin-bottom: 20px;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 135%;
+                margin: 0 15%;
+            }
+            img{
+                margin-left: 20px;
+                width: 80%;
+            }
+        }
+    }
+    .our-partners-page__partner-right-image{
+        display: flex;
+        >div{
+            border-left: 1px solid #D1C7A3;
+            width: 50%;
+            >h3{
+                font-family: 'PP Neue World';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 107px;
+                line-height: 100%;
+                margin-top: 194px;
+                margin-bottom: 105px;
+                text-align: center;
+            }
+            >p{
+                text-align: center;
+                margin-bottom: 20px;
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 135%;
+                margin: 0 15%;
+            }
+            img{
+                margin-left: 17%;
+                width: 80%;
+            }
+        }
+    }
+}

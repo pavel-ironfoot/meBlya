@@ -22,6 +22,7 @@ export const Footer = () => {
                 <div className='main-footer__menu'>
                     <h1>КЛІЄНТАМ</h1>
                     <NavLink to={'/show-page/about-us'}><p>ПРО НАС</p></NavLink>
+                    <NavLink to={'/show-page/our-partners'}><p>ПАРТНЕРИ</p></NavLink>
                     <p>F.A.Q.</p>
                     <p>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</p>
                 </div>

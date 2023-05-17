@@ -39,7 +39,7 @@ export const OurPartners = () =>{
             </div>
 
             <div className="home-page__show-all">                
-                <NavLink to={'/catalog/main-catalog'}>
+                <NavLink to={'/show-page/our-partners'}>
                         <button className="home-page__show-all__button">
                             ПЕРЕГЛЯНУТИ ВСІ
                         </button>
