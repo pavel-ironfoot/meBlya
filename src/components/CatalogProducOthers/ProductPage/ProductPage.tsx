@@ -6,6 +6,7 @@ import { ImageCatalog } from '../ImageCatalog';
 
 import './ProductPage.scss';
 import { ProductForm } from '../ProductForm';
+import { OurProducts } from '../OurProducts';
 
 interface Product {
     id: number;
@@ -68,13 +69,7 @@ export const ProductPage: React.FC = () => {
                 </div>
                 <ProductForm />
             </div>
-            <div className='product-page__wrapper'>
-                <h1>Recomendation Products</h1>
-                <div className='product-page__recomendation-product'>
-                    {showRecomendationProducts}
-                </div>
-            </div>
-
+            <OurProducts title={'РЕКОМЕНДОВАНІ ТОВАРИ'} />
         </div>
     );
 }

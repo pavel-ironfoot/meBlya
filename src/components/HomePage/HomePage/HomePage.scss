@@ -1,0 +1,21 @@
+.home-page{
+    .home-page__show-all{
+        a{
+            text-decoration: none;
+        }
+        border-bottom: 1px solid #D1C7A3;
+        .home-page__show-all__button{
+            cursor: pointer;
+            display: block;
+            margin: 28px auto;
+            color: black;
+            background-color: #EBE6D7;
+            border: none;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 90%;
+        }
+    }
+}

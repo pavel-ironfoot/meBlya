@@ -17,21 +17,3 @@
     display: flex;
 
 }
-.product-page__wrapper h1{
-    text-align: center;
-    padding: 20px;
-}
-.product-page__recomendation-product{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.product-page__one-product{
-    border: 2px solid #D1C7A3;
-    padding: 15px;
-    width: fit-content;
-}
-.product-page__one-product__about{
-    display: flex;
-    justify-content: space-between;
-}

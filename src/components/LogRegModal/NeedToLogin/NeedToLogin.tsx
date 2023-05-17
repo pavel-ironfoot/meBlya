@@ -25,7 +25,7 @@ export const NeedToLogin: React.FC<ModalForgetPasswordProps> = ({active,setActiv
                 <div onClick={() => setActive(false)} className='close__modal-to-login__x'><h1>X</h1></div>
                
                     <div className='modal__content-need-to-login__main-content'>
-                        <h1>Вітаємо на меБля!</h1>
+                        <h1>Вітаємо на SHYFON’YER!</h1>
                         <p>Щоб рухатись далі будь ласка, авторизуйтесь.</p>
                         <button onClick={showModal} className=''>АВТОРИЗАЦІЯ</button>
                     </div>

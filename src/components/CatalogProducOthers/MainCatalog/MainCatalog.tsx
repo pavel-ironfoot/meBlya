@@ -55,7 +55,8 @@ export const MainCatalog = () => {
                     .then((response) => response.json())
                     .then((arr) => {
                         setMainProducts([...data.products, ...arr.products]);
-                    });
+                    })
+                    .catch(error=>console.log(error));
 
             });
     }, []);

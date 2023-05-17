@@ -1,0 +1,30 @@
+.our-products{
+    border-top: 1px solid #D1C7A3;
+    padding-top: 20px;
+    >h1{
+        text-align: center;
+        padding: 20px;
+        font-family: 'PP Neue World';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 52px;
+        line-height: 100%;
+    }
+    .product-page__recomendation-product{
+        display: flex;
+        flex-wrap: wrap;
+        a{
+            text-decoration: none;
+        }
+        .product-page__one-product{
+            border: 1px solid #D1C7A3;
+            padding: 15px;
+            width: fit-content;
+            .product-page__one-product__about{
+                color: black;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
