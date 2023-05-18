@@ -10,19 +10,35 @@
 .main-footer__main-menu{
     display: flex;
     border-top: 1px solid #807657;
+    h1{
+        margin-bottom: 30px;
+        color: #EBE6D7;
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 19px;
+    }
+    p{
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 90%;
+        margin-bottom: 20px;
+        color: #AEA68D;
+    }
+    p:hover{
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 17px;
+        line-height: 90%;
+        margin-bottom: 20px;
+        color: rgb(211, 203, 176)
+    }
 }
-.main-footer__menu h1{
-    margin-bottom: 30px;
-    color: #EBE6D7;
-    font-weight: 600;
-    font-size: 14px;
-}
-.main-footer__menu p{
-    font-weight: 400;
-    font-size: 17px;
-    margin-bottom: 20px;
-    color: #AEA68D;
-}
+
 .main-footer__menu{
     flex-grow: 1;
     border-right: 1px solid #807657;

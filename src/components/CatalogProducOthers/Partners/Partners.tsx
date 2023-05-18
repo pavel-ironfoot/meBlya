@@ -69,14 +69,6 @@ export const Partners:React.FC = () =>{
         getResource(`https://shyfonyer.shop/api/v1/companies/${partnerId}`);
     },[partner]);
 
-    // const handlerProductCompany=()=>{           
-    //         if(partner==='ikea'){
-    //             console.log(partner)
-    //             dispatch(companysTitles([partner]));
-    //         }        
-    // }
-
-
     return (
         <div className='partners'>
             <h1 className='partners-title'>{companyData.full_name}</h1>

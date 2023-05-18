@@ -10,8 +10,12 @@ import { Partners } from "../Partners";
 import { AboutUs } from "../AboutUs";
 import { OurPartnersPage } from "../OurPartnersPage";
 
-import './MainAside.scss';
+import { Contacts } from "../Contacts";
+import { PrivacyPolicy } from "../PrivacyPolicy";
+import { FAQ } from "../FAQ";
+import { NotFoundPage } from "../NotFoundPage";
 
+import './MainAside.scss';
 
 export const MainAside = () =>{
     return (
@@ -25,6 +29,10 @@ export const MainAside = () =>{
                 <Route path='/partners/:partner' element={<Partners />} />
                 <Route path='/about-us' element={<AboutUs />} />
                 <Route path='/our-partners' element={<OurPartnersPage />} />
+                <Route path='/contacts' element={<Contacts />} />
+                <Route path='/fuckyou' element={<FAQ />} />
+                <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+                <Route path='*' element={<NotFoundPage />} /> 
             </Routes>
             <Footer />
         </div>

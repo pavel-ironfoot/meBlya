@@ -28,13 +28,19 @@
         .partners__main__content-block{
             padding: 100px;
             h2{
-                font-weight: 400px;
-                font-size: 52px;
                 margin-bottom: 20px;
+                font-family: 'PP Neue World';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 52px;
+                line-height: 100%;
             }
             p{
-                font-size: 18px;
+                font-family: 'Open Sans';
+                font-style: normal;
                 font-weight: 300;
+                font-size: 18px;
+                line-height: 135%;
             }
         }
     }
@@ -61,7 +67,11 @@
             padding: 100px;
             border-left: 1px solid #D1C7A3;
             h1{
+                font-family: 'PP Neue World';
+                font-style: normal;
+                font-weight: 400;
                 font-size: 107px;
+                line-height: 100%;
                 text-align: left;
                 text-transform: uppercase;
             }

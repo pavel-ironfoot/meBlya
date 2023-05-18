@@ -5,6 +5,9 @@ import { CatalogHomePage } from '../../CatalogProducOthers/CatalogHomePage';
 import { MainAside } from '../../CatalogProducOthers/MainAside';
 
 import './RoutesProject.scss';
+import { NotFoundPage } from '../../CatalogProducOthers/NotFoundPage';
+import { Header } from '../../CatalogProducOthers/Header';
+import { Footer } from '../Footer';
 
 export const RoutesProject = () =>{
     
@@ -14,7 +17,8 @@ export const RoutesProject = () =>{
                 <Routes>
                 <Route path='/' element={<HomePage />} /> 
                 <Route path ='/catalog/*' element ={<CatalogHomePage />} /> 
-                <Route path='/show-page/*' element ={<MainAside/>} />               
+                <Route path='/show-page/*' element ={<MainAside/>} />  
+                <Route path='*' element={<><Header /><NotFoundPage /><Footer/></>} />             
                 </Routes>
             </div>
         </BrowserRouter>

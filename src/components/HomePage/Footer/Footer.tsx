@@ -8,8 +8,8 @@ export const Footer = () => {
                 <div className='main-footer__menu'>
                     <h1>МЕНЮ</h1>
                     <NavLink to={'/'}><p>ГОЛОВНА</p></NavLink>
-                        <NavLink to={'/catalog/main-catalog'}><p>КАТАЛОГ</p></NavLink> 
-                        <p>КОНТАКТИ</p>
+                        <NavLink to={'/catalog/main-catalog'}><p>КАТАЛОГ</p></NavLink>
+                        <NavLink to={'/show-page/contacts'}><p>КОНТАКТИ</p></NavLink>
                         <NavLink to={`/show-page/personal-accaunt`}><p>ОСОБИСТИЙ КАБІНЕТ</p></NavLink>
                 </div>
                 <div className='main-footer__menu'>
@@ -23,8 +23,9 @@ export const Footer = () => {
                     <h1>КЛІЄНТАМ</h1>
                     <NavLink to={'/show-page/about-us'}><p>ПРО НАС</p></NavLink>
                     <NavLink to={'/show-page/our-partners'}><p>ПАРТНЕРИ</p></NavLink>
-                    <p>F.A.Q.</p>
-                    <p>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</p>
+                    
+                    <NavLink to={'/show-page/fuckyou'}><p>F.A.Q.</p></NavLink>
+                    <NavLink to={'/show-page/privacy-policy'}><p>ПОЛІТИКА КОНФІДЕНЦІЙНОСТІ</p></NavLink>
                 </div>
                 <div className='main-footer__menu'>
                     <h1>КОНТАКТНІ ДАНІ</h1>

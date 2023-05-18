@@ -1,0 +1,39 @@
+.privacy-policy{
+    margin-top: 76px;
+    display: flex;
+    background-color: #EBE6D7;
+    .privacy-policy__title{
+        flex-wrap: 1;
+        border-right: 1px solid #D1C7A3;
+        padding: 22px;
+        >h1{
+            font-family: 'PP Neue World';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 52px;
+            line-height: 100%;
+        }
+    }
+    .privacy-policy__text{
+        flex-grow: 2;
+        padding: 84px;
+        >p{
+            margin-top: 26px;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 135%;
+        }
+        >h3{
+            margin-top: 85px;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 135%;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+    }
+}
