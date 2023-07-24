@@ -7,7 +7,7 @@ export const validationEntrance = (number: string)=>{
 }
 
 export const validationEmail = (email:string) => {
-    if (email === '') return 'порожнє поле'; // return 'empty'
+    if (email === '') return 'порожнє поле'; 
     if (!(/^[a-zA-Z_.-1234567890]{1,32}@[a-z]{1,5}\.[a-z]{2,7}$/gi.test(email))) return 'invalid email';
     return 'nomistake';
 }
@@ -22,7 +22,7 @@ export const validationConfirmToken = (token:string) =>{
 
 export function validPassword(password:string) {
     let mistakes = '';
-    if (password === '') return 'порожнє поле'; // return 'empty'
+    if (password === '') return 'порожнє поле';
     if ((/\s/gm.test(password))) {
         mistakes = mistakes + 'без пробілів, ';
     }
@@ -60,17 +60,6 @@ export const validationNumber = (number:string) => {
     }
     return 'nomistake';
 }
-
-// export const validationNameKir = (name:string) => {
-//     let mistake = '';
-//     if (name === '') return 'empty'; // return 'empty'
-//     if (/^[А-Я]/.test(name) && /[\wа-яА-Я]{2}/ig.test(name) && /^[а-я]*$/i.test(name)) return 'nomistake';
-//     if (!/^[А-Я]/.test(name)) mistake += 'small first letter, ';
-//     if (!/[\wа-яА-Я]{2}/ig.test(name)) mistake += 'more letters, '
-//     if (!/^[а-я]*$/i.test(name)) mistake += 'only kirillitsa letters, '
-//     return mistake;
-// }
-
 
   export const validationNameKirLat = (name:string) => {
     if (name === '') return 'порожнє поле'; // return 'empty'
