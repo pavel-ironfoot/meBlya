@@ -1,4 +1,4 @@
-import { PRODUCTS_NAME_PAGE1, PRODUCTS_NAME_PAGE2, getUrl1, getUrl2 } from "./consts";
+import { CART_ITEMS, PRODUCTS_NAME_PAGE1, PRODUCTS_NAME_PAGE2, getUrl1, getUrl2 } from "./consts";
 import { Product } from "./types-and-interfaces";
 
 export const divideArr = (arr: string[]): [string, string] => {
@@ -178,7 +178,7 @@ export const sortSwitchCatalog = (sorted: string | undefined, setProductsToShow:
     }
 }
 
-export const mainSortCatalogFunction = async (getCompany: string[], getPriceRange: string[], setMainProducts: React.Dispatch<React.SetStateAction<any>>,) => {
+export const mainSortCatalogFunction = async (getCompany: string[], getPriceRange: string[], setMainProducts: React.Dispatch<React.SetStateAction<any>>) => {
     if (getCompany.length > 0 || getPriceRange.length > 0) {
         let startCompany = '';
         if (getCompany.length > 0) startCompany = getCompany.join(',')
@@ -210,4 +210,102 @@ export const mainSortCatalogFunction = async (getCompany: string[], getPriceRang
             })
 
     }
+}
+
+export const handleDecreaseRequest = async (id: number, setDataBasket: React.Dispatch<React.SetStateAction<any>>) => {
+    fetch(`https://shyfonyer.shop/api/v1/cart_items/${id}?action_item=decrease`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            fetch(CART_ITEMS, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    setDataBasket(data);
+                })
+                .catch(error => console.log(error))
+        })
+        .catch(error => console.log(error))
+}
+
+export const basketContainerUseEffectRequest = async (setShowBasketMenu: React.Dispatch<React.SetStateAction<any>>, setDataBasket: React.Dispatch<React.SetStateAction<any>>) => {
+    if (localStorage.getItem('token')) {
+        setShowBasketMenu(true);
+        fetch(CART_ITEMS, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setDataBasket(data);
+            })
+            .catch(error => console.log(error))
+    } else {
+        setShowBasketMenu(false);
+    }
+}
+
+export const deleteOneOrderFunction = async (id: number, setDataBasket: React.Dispatch<React.SetStateAction<any>>) => {
+    fetch(`https://shyfonyer.shop/api/v1/cart_items/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            fetch(CART_ITEMS, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    setDataBasket(data);
+                })
+                .catch(error => console.log(error))
+        })
+        .catch(error => console.log(error))
+}
+
+export const handleIncreaseFunctionRequest = async (id: number, setDataBasket: React.Dispatch<React.SetStateAction<any>>) => {
+    fetch(`https://shyfonyer.shop/api/v1/cart_items/${id}?action_item=increase`, {
+        method: 'PATCH',
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            fetch(CART_ITEMS, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    setDataBasket(data);
+                    console.log(data);
+                });
+        });
 }

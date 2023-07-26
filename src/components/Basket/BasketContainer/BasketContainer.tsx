@@ -1,131 +1,31 @@
 import { useEffect, useState } from 'react';
-import './BasketContainer.scss';
 import { NavLink } from 'react-router-dom';
 import basketLogo from '../../../images/header/basket-logo.png';
+import { BasketContainerProps, DataBasketElem } from '../../../utils/types-and-interfaces';
+import { basketContainerUseEffectRequest, deleteOneOrderFunction, handleDecreaseRequest, handleIncreaseFunctionRequest } from '../../../utils/helpfulFunction';
 
-interface BasketContainerProps {
-    active: boolean;
-    setActive: any;
-}
+import './BasketContainer.scss';
 
-interface DataBasketElem {
-    article_number: string;
-    company: string;
-    company_id: number;
-    id: number;
-    product_color: { name: string, hex: string }
-    product_id: number;
-    product_length: number;
-    product_name: string;
-    product_photo: string;
-    product_price: number;
-    product_thickness: { size: string };
-    product_width: number
-    quantity: number;
-    total_price: string;
-}
 
 export const BasketContainer: React.FC<BasketContainerProps> = ({ active, setActive }) => {
 
     const [showBasketMenu, setShowBasketMenu] = useState(false);
     const [dataBasket, setDataBasket] = useState<DataBasketElem[] | []>([]);
 
-
     useEffect(() => {
-        if (localStorage.getItem('token')) {
-            setShowBasketMenu(true);
-            fetch(`https://shyfonyer.shop/api/v1/cart_items`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    setDataBasket(data);
-                })
-                .catch(error=>console.log(error))
-        } else {
-            setShowBasketMenu(false);
-        }
+        basketContainerUseEffectRequest(setShowBasketMenu, setDataBasket)
     }, [active]);
 
-    const deleteOneOrder = (id: number) => {
-        fetch(`https://shyfonyer.shop/api/v1/cart_items/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-
-                fetch(`https://shyfonyer.shop/api/v1/cart_items`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        setDataBasket(data);
-                    });
-            });
+    const deleteOneOrder = async (id: number) => {
+        await deleteOneOrderFunction(id, setDataBasket);
     }
 
-    const handleIncrease = (id: number) => {
-        fetch(`https://shyfonyer.shop/api/v1/cart_items/${id}?action_item=increase`, {
-            method: 'PATCH',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                fetch(`https://shyfonyer.shop/api/v1/cart_items`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        setDataBasket(data);
-                        console.log(data);
-                    });
-            });
+    const handleIncrease = async (id: number) => {
+        await handleIncreaseFunctionRequest(id, setDataBasket);
     }
 
-    const handleDecrease = (id: number) => {
-        fetch(`https://shyfonyer.shop/api/v1/cart_items/${id}?action_item=decrease`, {
-            method: 'PATCH',
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data);
-                fetch(`https://shyfonyer.shop/api/v1/cart_items`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                    },
-                })
-                    .then((response) => response.json())
-                    .then((data) => {
-                        setDataBasket(data);
-                        console.log(data);
-                    });
-            });
+    const handleDecrease = async (id: number) => {
+        await handleDecreaseRequest(id, setDataBasket);
     }
 
     let showTotalPrice = 0;
@@ -141,7 +41,7 @@ export const BasketContainer: React.FC<BasketContainerProps> = ({ active, setAct
                     <div>
                         <h1>Фасад {elem.company} {elem.product_name}</h1></div>
                     <div>
-                        <button onClick={() => deleteOneOrder(elem.id)}>X</button>
+                        <button onClick={() => deleteOneOrder(elem.id)}>+</button>
                     </div>
                 </div>
 
@@ -168,8 +68,8 @@ export const BasketContainer: React.FC<BasketContainerProps> = ({ active, setAct
     return (
         <div onClick={() => setActive(false)} className={active ? "basket-container active-basket" : "basket-container"}>
             <div onClick={e => e.stopPropagation()} className='basket-container__content'>
-                <div  className='basket-container__close-button'>
-                    <div  className='basket-container__button-basket'>
+                <div className='basket-container__close-button'>
+                    <div className='basket-container__button-basket'>
                         <button onClick={() => setActive(false)}>ЗАКРИТИ</button>
                     </div>
                     <div className='basket-container__image-basket'>
@@ -177,10 +77,9 @@ export const BasketContainer: React.FC<BasketContainerProps> = ({ active, setAct
                     </div>
                     <div className='basket-container__basket-length'>
                         <p>{dataBasket.length}</p>
-                    </div>                   
+                    </div>
 
                 </div>
-                
 
                 {showBasketMenu ? <div>
                     <h3>Ваші замовлення:</h3>

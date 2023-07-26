@@ -11,3 +11,5 @@ export const getUrl1 = (startCompany: string, startPrice: string, endPrice: stri
 export const getUrl2 = (startCompany: string, startPrice: string, endPrice: string) => {
     return `https://shyfonyer.shop/api/v1/products?page=2&company_name=${startCompany}&price_less_r=${startPrice}&price_more_r=${endPrice}`;
 }
+
+export const CART_ITEMS = `https://shyfonyer.shop/api/v1/cart_items`;

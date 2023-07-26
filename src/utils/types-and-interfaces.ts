@@ -15,6 +15,28 @@ export interface ShowComponentProps {
 }
 
 export interface ModalMenuProps {
-    active:boolean;
-    setActive:any;
+    active: boolean;
+    setActive: any;
+}
+
+export interface BasketContainerProps {
+    active: boolean;
+    setActive: any;
+}
+
+export interface DataBasketElem {
+    article_number: string;
+    company: string;
+    company_id: number;
+    id: number;
+    product_color: { name: string, hex: string }
+    product_id: number;
+    product_length: number;
+    product_name: string;
+    product_photo: string;
+    product_price: number;
+    product_thickness: { size: string };
+    product_width: number
+    quantity: number;
+    total_price: string;
 }
