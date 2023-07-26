@@ -96,5 +96,22 @@
         left: 78%;
         width: 13%;
     }
-
+    @media (max-width: 1500px) {
+        .main-container__info{
+            width: 50%;
+        }
+    }
+    @media (max-width: 850px) {
+        .main-container__info{
+            width: 50%;
+            .main-container__info-title{
+                font-size: 44px;
+            }
+        }
+    }
+}
+@media (max-width: 850px) {
+    .main-container{
+        min-width: 530px;
+    }
 }

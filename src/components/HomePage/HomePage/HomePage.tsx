@@ -3,10 +3,9 @@ import { OurProducts } from "../../CatalogProducOthers/OurProducts";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
 import { Main } from "../Main";
-
-import './HomePage.scss';
 import { OurPartners } from "../OurPartners";
 
+import './HomePage.scss';
 
 export const HomePage = () => {
     return (

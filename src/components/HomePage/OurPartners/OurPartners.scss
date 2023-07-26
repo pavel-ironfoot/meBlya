@@ -1,6 +1,5 @@
 .our-partners {
     margin-bottom: 120px;
-
     >h1 {
         margin-top: 120px;
         font-family: 'PP Neue World';
@@ -29,7 +28,6 @@
 
     .our-partners__partners-block {
         display: flex;
-
         .our-partners__one-block {
             flex-grow: 1;
             border: 1px solid #D1C7A3;
@@ -66,5 +64,13 @@
             }
         }
     }
-
+    @media (max-width: 1850px) {
+        .our-partners__partners-block {
+           flex-wrap: wrap;
+        }
+        .our-partners__one-block {
+            width: 630px;
+            border: 1px solid black;
+        }
+    }
 }

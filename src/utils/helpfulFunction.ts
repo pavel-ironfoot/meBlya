@@ -180,7 +180,6 @@ export const sortSwitchCatalog = (sorted: string | undefined, setProductsToShow:
 
 export const mainSortCatalogFunction = async (getCompany: string[], getPriceRange: string[], setMainProducts: React.Dispatch<React.SetStateAction<any>>,) => {
     if (getCompany.length > 0 || getPriceRange.length > 0) {
-
         let startCompany = '';
         if (getCompany.length > 0) startCompany = getCompany.join(',')
         let url = PRODUCTS_NAME_PAGE1 + startCompany;
@@ -198,7 +197,6 @@ export const mainSortCatalogFunction = async (getCompany: string[], getPriceRang
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data.pagination.total_pages)
                 if (data.pagination.total_pages === 2) {
                     fetch(url2, {
                         method: 'GET',

@@ -1,28 +1,55 @@
-.katalog-home-page{
+.katalog-home-page {
     position: relative;
     min-height: 100vh;
     background-color: #EBE6D7;
-}
-.katalog-home-page__main-aside{
-    display: flex;
-}
-.under-header{
-    margin-top: 76px;
-    border: 1px solid #EBE6D7;
-    border-bottom: 1px solid #D1C7A3;
-    
-    >h1{
-        margin-top: 40px;
-        margin-bottom: 20px;
-        text-align: center;
-        font-family: 'PP Neue World';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 140px;
-        line-height: 90%;
-        letter-spacing: -0.02em;
-        color: #1F1F1F;
-        word-spacing: 20px;
-        padding-bottom: 0;
+
+    .katalog-home-page__main-aside {
+        display: flex;
+    }
+
+    .under-header {
+        margin-top: 76px;
+        border: 1px solid #EBE6D7;
+        border-bottom: 1px solid #D1C7A3;
+
+        >h1 {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'PP Neue World';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 140px;
+            line-height: 90%;
+            letter-spacing: -0.02em;
+            color: #1F1F1F;
+            word-spacing: 20px;
+            padding-bottom: 0;
+        }
+    }
+
+    @media (max-width: 740px) {
+        .katalog-home-page__main-aside {
+            display: flex;
+            flex-wrap: wrap;
+            min-width: 530px;
+        }
+        .under-header{  
+            min-width: 530px;
+            >h1 {
+                margin-top: 40px;
+                margin-bottom: 20px;
+                text-align: center;
+                font-family: 'PP Neue World';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 80px;
+                line-height: 90%;
+                letter-spacing: -0.02em;
+                color: #1F1F1F;
+                word-spacing: 20px;
+                padding-bottom: 0;
+            }
+        }
     }
 }

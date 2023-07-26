@@ -1,10 +1,10 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
-
-import './CatalogHomePage.scss';
+import { Route, Routes } from 'react-router-dom';
 import { Header } from '../Header';
 import { Aside } from '../Aside';
 import { MainCatalog } from '../MainCatalog';
 import { Footer } from '../../HomePage/Footer';
+
+import './CatalogHomePage.scss';
 
 export const CatalogHomePage = () => {
     return (
@@ -17,9 +17,8 @@ export const CatalogHomePage = () => {
                 <Aside />
                 <Routes>
                     <Route path='/:sorted' element={<MainCatalog />} />
-                </Routes>                
+                </Routes>
             </div>
-
             <Footer />
         </div>
     );
