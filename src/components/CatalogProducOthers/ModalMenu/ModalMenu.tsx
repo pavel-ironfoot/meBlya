@@ -1,10 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import './ModalMenu.scss';
+import { ModalMenuProps } from '../../../utils/types-and-interfaces';
 
-interface ModalMenuProps {
-    active:boolean;
-    setActive:any;
-}
+import './ModalMenu.scss';
 
 export const ModalMenu: React.FC<ModalMenuProps> = ({ active, setActive }) => {
 

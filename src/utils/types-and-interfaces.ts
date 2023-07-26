@@ -13,3 +13,8 @@ export interface ShowComponentProps {
     productsToShow: Product[];
     showProducts: JSX.Element[];
 }
+
+export interface ModalMenuProps {
+    active:boolean;
+    setActive:any;
+}
