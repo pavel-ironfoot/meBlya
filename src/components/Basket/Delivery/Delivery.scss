@@ -1,20 +1,24 @@
-.delivery{
-    .delivery__main-block{
+.delivery {
+    .delivery__main-block {
         display: flex;
-        .delivery__input-block{
+
+        .delivery__input-block {
             margin-right: 20px;
         }
     }
-    .delivery__label-checkbox{
+
+    .delivery__label-checkbox {
         font-size: 18px;
         color: black;
     }
-    .delivery__label-p{
+
+    .delivery__label-p {
         font-size: 18px;
         font-weight: 300;
         color: black;
     }
-    button{
+
+    button {
         margin-top: 10px;
         padding: 20px;
         font-size: 18px;
@@ -22,10 +26,12 @@
         border-radius: 4px;
         background-color: #645832;
     }
-    .form-field__input{
+
+    .form-field__input {
         margin: 0px;
     }
-    .delivery__textarea{
+
+    .delivery__textarea {
         font-size: 18px;
         color: black;
     }

@@ -1,13 +1,16 @@
-.login-basket{
+.login-basket {
     display: flex;
-    .login-basket__basket{
+
+    .login-basket__basket {
         padding: 4px;
         padding-top: 28px;
-        .login-basket__basket__image{
+
+        .login-basket__basket__image {
             cursor: pointer;
         }
     }
-    .login-basket__basket__counter{
+
+    .login-basket__basket__counter {
         color: black;
         font-size: 18px;
         font-weight: 400;

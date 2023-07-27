@@ -1,4 +1,4 @@
-import { CART_ITEMS, PRODUCTS_NAME_PAGE1, PRODUCTS_NAME_PAGE2, getUrl1, getUrl2 } from "./consts";
+import { CART_ITEMS, PRODUCTS_NAME_PAGE1, PRODUCTS_NAME_PAGE2, PRODUCTS_PAGE1, PRODUCTS_PAGE2, getUrl1, getUrl2 } from "./consts";
 import { Product } from "./types-and-interfaces";
 
 export const divideArr = (arr: string[]): [string, string] => {
@@ -127,10 +127,10 @@ export const getCompanyData = async (url: string) => {
 
 export const getAllCatalogProducts = async () => {
     try {
-        const response1 = await fetch('https://shyfonyer.shop/api/v1/products');
+        const response1 = await fetch(PRODUCTS_PAGE1);
         const data1 = await response1.json();
 
-        const response2 = await fetch('https://shyfonyer.shop/api/v1/products?page=2');
+        const response2 = await fetch(PRODUCTS_PAGE2);
         const data2 = await response2.json();
 
         return [...data1.products, ...data2.products];
@@ -142,12 +142,12 @@ export const getAllCatalogProducts = async () => {
 }
 
 export const withoutChoose = async (setMainProducts: React.Dispatch<React.SetStateAction<any>>, url1: string, url2: string) => {
-    fetch('https://shyfonyer.shop/api/v1/products', {
+    fetch(PRODUCTS_PAGE1, {
         method: 'GET',
     })
         .then((response) => response.json())
         .then((data) => {
-            fetch(`https://shyfonyer.shop/api/v1/products?page=2`, {
+            fetch(PRODUCTS_PAGE2, {
                 method: 'GET',
             })
                 .then((response) => response.json())
@@ -308,4 +308,73 @@ export const handleIncreaseFunctionRequest = async (id: number, setDataBasket: R
                     console.log(data);
                 });
         });
+}
+
+export const createAnOrderFunction = async (checkoutData: Record<string, any>) => {
+    if (localStorage.getItem('token')) {
+        if (checkoutData.delivery.delivery_location_id === 0) {
+            fetch(`https://shyfonyer.shop/api/v1/orders?[order]first_name=${checkoutData.information.first_name}&[order]last_name=${checkoutData.information.second_name}&[order]email=${checkoutData.information.email}&[order]phone_number=${checkoutData.information.phone_number}&[order]payment_method_id=${checkoutData.payment}&[order]delivery_location_id=0&[order]warehouse_address_id=1`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                })
+                .catch(error => console.log(error));
+        } else if (checkoutData.delivery.delivery_location_id === 1) {
+            fetch(`https://shyfonyer.shop/api/v1/orders?[order]first_name=${checkoutData.information.first_name}&[order]last_name=${checkoutData.information.second_name}&[order]email=${checkoutData.information.email}&[order]phone_number=${checkoutData.information.phone_number}&[order]street_name=${checkoutData.delivery.street}&[order]building_number=${checkoutData.delivery.house}&[order]apartment_number=${checkoutData.delivery.apartment}&[order]entrance_number=${checkoutData.delivery.entrance}&[order]payment_method_id=${checkoutData.payment}&[order]delivery_location_id=1&[order]comment=${checkoutData.delivery.comment}`, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                },
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch(error => console.log(error));
+        }
+    }
+}
+
+export const checkoutBasketFunction = async (setDataBasket: React.Dispatch<React.SetStateAction<any>>) =>{
+    if (localStorage.getItem('token')) {
+        fetch(CART_ITEMS, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setDataBasket(data);
+            })
+            .catch(error=>console.log(error));
+    } 
+}
+
+export const loginAndBasketUseEffect = async(setShowBasketCounter: React.Dispatch<React.SetStateAction<any>>,setBasketLength: React.Dispatch<React.SetStateAction<any>>,setCounterBasketElems: React.Dispatch<React.SetStateAction<any>>,dispatch: React.Dispatch<any>) =>{
+    if (localStorage.getItem('token')) {
+        setShowBasketCounter(true);
+        fetch(CART_ITEMS, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                dispatch(setCounterBasketElems(data.length));
+                setBasketLength(data.length)
+            })
+            .catch(error => console.log(error));
+    } else {
+        setShowBasketCounter(false)
+    }
 }

@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { AllPopup } from "../../LogRegModal/AllPopup";
 import { BasketContainer } from "../BasketContainer/BasketContainer";
 import basketLogo from '../../../images/header/basket-logo.png';
-
-import './LogInAndBasket.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { setCounterBasketElems } from "../../../storeToolkit/counterBasketSlice";
+import { loginAndBasketUseEffect } from "../../../utils/helpfulFunction";
+
+import './LogInAndBasket.scss';
 
 export const LogInAndBasket =() =>{
     const dispatch = useDispatch();
@@ -16,25 +17,7 @@ export const LogInAndBasket =() =>{
     const getCounter = useSelector((state:any)=>state.counter.basketCounter);
 
     useEffect(() => {
-
-        if (localStorage.getItem('token')) {
-            setShowBasketCounter(true);
-            fetch(`https://shyfonyer.shop/api/v1/cart_items`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    dispatch(setCounterBasketElems(data.length));
-                    setBasketLength(data.length)
-                    console.log('basket length',data.length);
-                });
-        } else {
-            setShowBasketCounter(false)
-        }
+        loginAndBasketUseEffect(setShowBasketCounter,setBasketLength,setCounterBasketElems,dispatch);
     }, [showBasket]);
 
     return (

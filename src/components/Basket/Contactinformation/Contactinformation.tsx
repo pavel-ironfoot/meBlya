@@ -6,23 +6,11 @@ import { validationEmail, validationNameKirLat, validationNumber } from '../../.
 import { useDispatch } from 'react-redux';
 import { addContactInformation } from '../../../storeToolkit/informationSlice';
 import { changeInformationConfirm } from '../../../storeToolkit/changeDisabledSlice';
+import { ContactinformationProps, ContactinformationType } from '../../../utils/types-and-interfaces';
 
-interface ContactinformationType {
-    first_name:string;
-    second_name:string;
-    phone_number:string;
-    email:string;
-    callMe:boolean;
-}
-interface ContactinformationProps {
-    openDelivery: (value:boolean) => void;
-    openPayment: (value:boolean) => void;
-    openInformation: (value:boolean) => void;
-  }
 export const Contactinformation:React.FC<ContactinformationProps> = ({openDelivery,openPayment})=>{
     const dispatch = useDispatch();
     const [contactInformationForm, setContactInformationForm] = useState<ContactinformationType>(contactInformationValue);
-
 
     const setRegistrationValue = (key: string, value: string) => {
         setContactInformationForm({ ...contactInformationForm, [key]: value });
@@ -38,7 +26,6 @@ export const Contactinformation:React.FC<ContactinformationProps> = ({openDelive
     }
 
     const handleInformationContinue = () => {
-        // openInformation(false);
         openDelivery(true);
         openPayment(false);
         dispatch(addContactInformation(contactInformationForm));

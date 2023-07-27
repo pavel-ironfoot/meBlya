@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import './Payment.scss';
 import { useDispatch } from 'react-redux';
 import { addAddress } from '../../../storeToolkit/informationSlice';
 import { changeDisabledConfirm } from '../../../storeToolkit/changeDisabledSlice';
 
+import './Payment.scss';
 
 export const Payment: React.FC = () => {
     const dispatch = useDispatch();
@@ -17,11 +17,10 @@ export const Payment: React.FC = () => {
         }
     }
 
-
-    useEffect(()=>{
-            dispatch(addAddress(paymentType));
-            console.log(paymentType)
-    },[paymentType]);
+    useEffect(() => {
+        dispatch(addAddress(paymentType));
+        console.log(paymentType)
+    }, [paymentType]);
 
     return (
         <div className='payment'>

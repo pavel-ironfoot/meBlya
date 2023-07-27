@@ -4,24 +4,11 @@ import { addressValues } from '../../../formValues/formValues';
 import { useDispatch } from 'react-redux';
 import { addDataDelivery } from '../../../storeToolkit/informationSlice';
 import { validationEntrance, validationStreetKirLat } from '../../../validationFields/validation';
-
+import { changeDeliveryConfirm } from '../../../storeToolkit/changeDisabledSlice';
+import { DeliveryProps, addressValuesType } from '../../../utils/types-and-interfaces';
 
 import './Delivery.scss';
-import { changeDeliveryConfirm } from '../../../storeToolkit/changeDisabledSlice';
 
-
-interface addressValuesType {
-    street: string;
-    entrance: string;
-    house: string;
-    apartment: string;
-    comment: string;
-}
-interface DeliveryProps {
-    openDelivery: (value: boolean) => void;
-    openPayment: (value: boolean) => void;
-    openInformation: (value: boolean) => void;
-}
 
 export const Delivery: React.FC<DeliveryProps> = ({ openInformation, openDelivery, openPayment }) => {
     const dispatch = useDispatch();
@@ -32,19 +19,15 @@ export const Delivery: React.FC<DeliveryProps> = ({ openInformation, openDeliver
         const { value, checked } = e.target;
         if (checked) {
             setDeliveryType(value);
-            if(value==='pickup'){dispatch(changeDeliveryConfirm(true));}else{dispatch(changeDeliveryConfirm(false))}
+            if (value === 'pickup') { dispatch(changeDeliveryConfirm(true)); } else { dispatch(changeDeliveryConfirm(false)) }
         }
     }
     const handleDeliveryContinue = () => {
         if (deliveryType === 'pickup') {
-            console.log('byself');
             dispatch(addDataDelivery({ delivery_location_id: 0 }));
         } else {
             dispatch(addDataDelivery({ ...addressForm, delivery_location_id: 1 }));
-            console.log({ ...addressForm, delivery_location_id: 1 });
         }
-        // openInformation(false);
-        // openDelivery(false);
         openPayment(true);
     }
     const handleCommentChange = (e: any) => {
@@ -54,25 +37,24 @@ export const Delivery: React.FC<DeliveryProps> = ({ openInformation, openDeliver
         setAddressForm({ ...addressForm, [key]: value });
     }
 
-
     const streetError = useMemo(() => validationStreetKirLat(addressForm.street), [addressForm.street]);
     const entranceError = useMemo(() => validationEntrance(addressForm.entrance), [addressForm.entrance]);
     const apartmentError = useMemo(() => validationEntrance(addressForm.apartment), [addressForm.apartment]);
     const houseError = useMemo(() => validationEntrance(addressForm.house), [addressForm.house]);
 
-    useEffect(()=>{
-        if(deliveryType==='address'){
+    useEffect(() => {
+        if (deliveryType === 'address') {
             console.log('last test')
-            console.log('lasssst',entranceError);
-            if(streetError==='nomistake' && entranceError==='nomistake' && apartmentError==='nomistake' && houseError==='nomistake'){
+            console.log('lasssst', entranceError);
+            if (streetError === 'nomistake' && entranceError === 'nomistake' && apartmentError === 'nomistake' && houseError === 'nomistake') {
                 dispatch(changeDeliveryConfirm(true));
-            }else{
+            } else {
                 dispatch(changeDeliveryConfirm(false));
             }
         }
 
-        
-    },[addressForm]);
+
+    }, [addressForm]);
 
     return (
         <div className='delivery'>
@@ -141,7 +123,6 @@ export const Delivery: React.FC<DeliveryProps> = ({ openInformation, openDeliver
                             </p>
                         </div>
                     </div>
-
 
                     <br />
                     <label className='delivery__textarea' htmlFor="comment">Додати коментар</label>

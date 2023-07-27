@@ -11,7 +11,7 @@ export const Checkout: React.FC = () => {
     const [showDelivery, setShowDelivery] = useState<boolean>(false);
     const [showPayment, setShowPayment] = useState<boolean>(false);
 
-    return (       
+    return (
         <div className='checkout'>
             <div className='checkout-left'>
                 <h1 className='checkout-left__open-title checkout-left__open-title-cursor' onClick={() => {
@@ -19,7 +19,7 @@ export const Checkout: React.FC = () => {
                     setShowDelivery(false);
                     setShowPayment(false);
                 }}>
-                    1.  Контактна інформація 
+                    1.  Контактна інформація
                 </h1>
                 {showInformation ? <Contactinformation
                     openInformation={setShowInformation}
