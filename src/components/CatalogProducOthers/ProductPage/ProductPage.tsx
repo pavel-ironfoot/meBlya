@@ -1,20 +1,11 @@
 import { useLocation, useParams } from 'react-router';
 import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { recomendationFour } from '../../../utils/helpfulFunction';
-import { ImageCatalog } from '../ImageCatalog';
-
-import './ProductPage.scss';
+import { productPageUseEffect } from '../../../utils/helpfulFunction';
 import { ProductForm } from '../ProductForm';
 import { OurProducts } from '../OurProducts';
 
-interface Product {
-    id: number;
-    name: string;
-    company: string;
-    price: number;
-    photo_url: string;
-  }
+import './ProductPage.scss';
+
 
 export const ProductPage: React.FC = () => {
 
@@ -22,50 +13,21 @@ export const ProductPage: React.FC = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-      }, [location.pathname]);
+    }, [location.pathname]);
 
-    const {productId} = useParams();
-    const [oneProductPhoto,setOneProductPhoto] = useState();
-    const [recomendationProducts, setRecomendationProducts] = useState<Product[]>([]);
-
-    useEffect(()=>{
-        fetch(`https://shyfonyer.shop/api/v1/products/${productId}`, {
-            method: 'GET',
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setOneProductPhoto(data.photo);
-            });
-    },[productId]);
+    const { productId } = useParams();
+    const [oneProductPhoto, setOneProductPhoto] = useState();
 
     useEffect(() => {
-        fetch('https://shyfonyer.shop/api/v1/products', {
-            method: 'GET',
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                const generationNumber = recomendationFour();
-                setRecomendationProducts(data.products.slice(generationNumber - 4, generationNumber))
-            });
-    }, []);
+        productPageUseEffect(productId, setOneProductPhoto);
+    }, [productId]);
 
-    const showRecomendationProducts = recomendationProducts.map((elem) => {
-        return <NavLink to={`/show-page/product-page/${elem.id}`} key={elem.name + elem.price}>
-            <div className='product-page__one-product'>
-                <ImageCatalog photoUrl={elem.photo_url} />
-                <div className='product-page__one-product__about'>
-                    <div>{elem.company} {elem.name}</div>
-                    <div>from {elem.price}</div>
-                </div>
-            </div>
-        </NavLink>
-    });
 
     return (
         <div className='product-page'>
             <div className='product-page__main-contant'>
                 <div className='product-page__photo'>
-                    {oneProductPhoto?<img src={oneProductPhoto} alt="furniture" />:<>fucking developers</>}
+                    {oneProductPhoto ? <img src={oneProductPhoto} alt="furniture" /> : <></>}
                 </div>
                 <ProductForm />
             </div>

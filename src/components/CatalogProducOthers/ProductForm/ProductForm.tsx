@@ -5,20 +5,16 @@ import { useDispatch } from 'react-redux';
 import { setCounterBasketElems } from '../../../storeToolkit/counterBasketSlice';
 import { NeedToLogin } from '../../LogRegModal/NeedToLogin';
 import { OneProductInterface, ProductFormState } from '../../../utils/types-and-interfaces';
+import { productFormCounterBasket, productFormHandleSubmit, productFormUseEffect } from '../../../utils/helpfulFunction';
 
 import './ProductForm.scss';
-import { productFormUseEffect } from '../../../utils/helpfulFunction';
-
 
 
 export const ProductForm = () => {
     const dispatch = useDispatch();
     const { productId } = useParams<{ productId: string }>()
-
     const [count, setCount] = useState<any>(1);
-
     const [oneProduct, setOneProduct] = useState<OneProductInterface | null>(null);
-
     const [price, setPrice] = useState<any>();
     const [productForm, setProductForm] = useState<ProductFormState>(productValues);
     const [openModalNeedToLogin,setOpenModalNeedToLogin] = useState<boolean>(false);
@@ -28,22 +24,7 @@ export const ProductForm = () => {
     }, [productId]);
 
     useEffect(() => {
-        if (localStorage.getItem('token')) {
-
-            fetch(`https://shyfonyer.shop/api/v1/cart_items`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    dispatch(setCounterBasketElems(data.length));
-                });
-        } else {
-
-        }
+        productFormCounterBasket(setCounterBasketElems,dispatch);
     }, []);
 
     useEffect(() => {
@@ -81,52 +62,13 @@ export const ProductForm = () => {
         }
     }
 
-    const handleSubmit = () => {
-
+    const handleSubmit = async() => {
         if (localStorage.getItem('token')) {
-
-            fetch(`https://shyfonyer.shop/api/v1/cart_items`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    dispatch(setCounterBasketElems(data.length+1))
-                    console.log('basket length', data.length);
-                })
-                .catch(error=>console.log(error));
-
-            
-            let thicknessId;
-            oneProduct?.thickness.map((elem, index) => {
-                if (productForm.thickness === elem.size) thicknessId = index;
-            })
-            let colorId;
-            oneProduct?.colors.map((elem: any, index) => {
-                if (productForm.color === elem.name) colorId = index;
-            })
-            fetch(`https://shyfonyer.shop/api/v1/cart_items?[cart_item]product_id=${productId}&[cart_item]quantity=${count}&[cart_item]product_width=${productForm.width}&[cart_item]product_length=${productForm.height}&[cart_item]product_thickness_id=${thicknessId}&[cart_item]product_color_id=${colorId}`, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-                })
-                .catch(error=>console.log(error));
-            
+            await productFormHandleSubmit(productId,count,oneProduct,productForm,setCounterBasketElems,dispatch);
         } else {
-            setOpenModalNeedToLogin(true);
+            await setOpenModalNeedToLogin(true);
         }
     }
-
 
     const colorsArray = oneProduct?.colors.map((elem, index) => {
         return <span key={elem.hex + index}>

@@ -44,20 +44,10 @@
             line-height: 135%;
             background-color: #EBE6D7;
             cursor: pointer;
-        }
-        button:hover{
-            display: block;
-            margin: 20px auto;
-            border-radius: 5px;
-            padding: 10px 34px;
-            border: 1px dotted #665f47;
-            font-family: 'Open Sans';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 135%;
-            background-color: #EBE6D7;
-            cursor: pointer;
+            &:hover{
+                background-color: #b6b2a6;
+                border: 1px dotted #665f47;
+            }
         }
     }
     .main-container__picture12{

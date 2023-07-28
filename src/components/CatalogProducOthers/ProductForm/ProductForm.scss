@@ -1,12 +1,14 @@
-.product-page__main-form{
+.product-page__main-form {
     padding: 40px;
-    .product-page__form-field__calculate-price{
+
+    .product-page__form-field__calculate-price {
         color: #645832;
         font-weight: 400;
         font-size: 24px;
         margin: 20px 0px;
     }
-    .product-page__main-form__addToBasket{
+
+    .product-page__main-form__addToBasket {
         width: 500px;
         padding: 20px;
         font-size: 20px;
@@ -17,7 +19,8 @@
         border-radius: 4px;
         cursor: pointer;
     }
-    .product-page__main-form__addToBasket:hover{
+
+    .product-page__main-form__addToBasket:hover {
         width: 500px;
         padding: 20px;
         font-size: 20px;
@@ -29,44 +32,53 @@
     }
 }
 
-.product-page__form-field{
+.product-page__form-field {
     margin-top: 15px;
     margin-bottom: 15px;
+
+    h3 {
+        margin-bottom: 10px;
+    }
 }
-.product-page__main-form p{
+
+.product-page__main-form p {
     margin-top: 15px;
 }
-.product-page__checkbox{
+
+.product-page__checkbox {
     padding: 5px;
     font-size: 20px;
 }
 
-.product-page__form-field input[type="radio"]{
+.product-page__form-field input[type="radio"] {
     display: none;
 }
 
-.label-color{
+.label-color {
     display: inline-block;
     width: 33px;
     height: 33px;
     margin-right: 10px;
     cursor: pointer;
-    border: 1px solid black;
     padding: 2px;
 }
-.label-color:hover{
+
+.label-color:hover {
     transform: scale(1.25);
 }
-.product-page__form-field input[type="radio"]:checked+.label-color{
+
+.product-page__form-field input[type="radio"]:checked+.label-color {
     transform: scale(1.25);
 }
-.black{
+
+.black {
     display: block;
     width: 100%;
     height: 100%;
     /* background-color: #252121; */
 }
-.label-thickness{
+
+.label-thickness {
     display: inline-block;
     border-radius: 8px;
     width: 142px;
@@ -75,7 +87,8 @@
     cursor: pointer;
     border: 1px solid #D1C7A3;
 }
-.thickness{
+
+.thickness {
     display: block;
     font-size: 20px;
     text-align: center;
@@ -83,38 +96,46 @@
     width: 100%;
     height: 100%;
 }
-.label-thickness:hover{
+
+.label-thickness:hover {
     background-color: #645832;
 }
-.product-page__form-field input[type="radio"]:checked+.label-thickness{
+
+.product-page__form-field input[type="radio"]:checked+.label-thickness {
     background-color: #645832;
 }
-.facade-calculator{
+
+.facade-calculator {
     display: flex;
 }
-.facade-calculator div{
+
+.facade-calculator div {
     margin-right: 10px;
 }
-.facade-calculator input{
+
+.facade-calculator input {
     font-size: 20px;
     padding: 10px;
-    border:1px solid #D1C7A3;
+    border: 1px solid #D1C7A3;
     background-color: #EBE6D7;
 }
-.product-page__form-field__count input{
+
+.product-page__form-field__count input {
     border: none;
     padding: 0px;
     width: 21px;
     background-color: #EBE6D7;
 }
-.product-page__form-field_plus-minus{
+
+.product-page__form-field_plus-minus {
     padding: 10px;
     font-size: 20px;
     border: none;
     background-color: #EBE6D7;
     cursor: pointer;
 }
-.product-page__form-field__count-wrapper{
-    border:1px solid #D1C7A3;
+
+.product-page__form-field__count-wrapper {
+    border: 1px solid #D1C7A3;
     width: 90px;
 }

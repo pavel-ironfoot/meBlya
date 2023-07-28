@@ -1,5 +1,5 @@
 import { CART_ITEMS, PRODUCTS_NAME_PAGE1, PRODUCTS_NAME_PAGE2, PRODUCTS_PAGE1, PRODUCTS_PAGE2, getUrl1, getUrl2 } from "./consts";
-import { Product } from "./types-and-interfaces";
+import { OneProductInterface, Product, ProductFormState } from "./types-and-interfaces";
 
 export const divideArr = (arr: string[]): [string, string] => {
     const first: string[] = [];
@@ -341,7 +341,7 @@ export const createAnOrderFunction = async (checkoutData: Record<string, any>) =
     }
 }
 
-export const checkoutBasketFunction = async (setDataBasket: React.Dispatch<React.SetStateAction<any>>) =>{
+export const checkoutBasketFunction = async (setDataBasket: React.Dispatch<React.SetStateAction<any>>) => {
     if (localStorage.getItem('token')) {
         fetch(CART_ITEMS, {
             method: 'GET',
@@ -354,11 +354,11 @@ export const checkoutBasketFunction = async (setDataBasket: React.Dispatch<React
             .then((data) => {
                 setDataBasket(data);
             })
-            .catch(error=>console.log(error));
-    } 
+            .catch(error => console.log(error));
+    }
 }
 
-export const loginAndBasketUseEffect = async(setShowBasketCounter: React.Dispatch<React.SetStateAction<any>>,setBasketLength: React.Dispatch<React.SetStateAction<any>>,setCounterBasketElems: React.Dispatch<React.SetStateAction<any>>,dispatch: React.Dispatch<any>) =>{
+export const loginAndBasketUseEffect = async (setShowBasketCounter: React.Dispatch<React.SetStateAction<any>>, setBasketLength: React.Dispatch<React.SetStateAction<any>>, setCounterBasketElems: React.Dispatch<React.SetStateAction<any>>, dispatch: React.Dispatch<any>) => {
     if (localStorage.getItem('token')) {
         setShowBasketCounter(true);
         fetch(CART_ITEMS, {
@@ -379,7 +379,7 @@ export const loginAndBasketUseEffect = async(setShowBasketCounter: React.Dispatc
     }
 }
 
-export const ourProductsUsEffect = async (setRecomendationProducts: React.Dispatch<React.SetStateAction<any>>) =>{
+export const ourProductsUsEffect = async (setRecomendationProducts: React.Dispatch<React.SetStateAction<any>>) => {
     fetch(PRODUCTS_PAGE1, {
         method: 'GET',
     })
@@ -391,31 +391,99 @@ export const ourProductsUsEffect = async (setRecomendationProducts: React.Dispat
         .catch(error => console.log(error));
 }
 
-export const getPartner = (partner:string | undefined) => {
-    let partnerId =0;
+export const getPartner = (partner: string | undefined) => {
+    let partnerId = 0;
 
-    switch(partner){
-        case 'ikea': partnerId =2;
-        break;
-        case 'jysk': partnerId =3;
-        break;
-        case 'blum': partnerId =4;
-        break;
-        case 'kolss': partnerId =5;
-        break;
+    switch (partner) {
+        case 'ikea': partnerId = 2;
+            break;
+        case 'jysk': partnerId = 3;
+            break;
+        case 'blum': partnerId = 4;
+            break;
+        case 'kolss': partnerId = 5;
+            break;
         default:
             console.log("something goin wrong");
     }
     return partnerId;
 }
 
-export const productFormUseEffect = async(productId:string | undefined,setOneProduct:React.Dispatch<React.SetStateAction<any>>) =>{
+export const productFormUseEffect = async (productId: string | undefined, setOneProduct: React.Dispatch<React.SetStateAction<any>>) => {
     fetch(`https://shyfonyer.shop/api/v1/products/${productId}`, {
         method: 'GET',
     })
         .then((response) => response.json())
         .then((data) => {
             setOneProduct(data);
+        })
+        .catch(error => console.log(error));
+}
+
+export const productFormCounterBasket = async (setCounterBasketElems: React.Dispatch<React.SetStateAction<any>>, dispatch: React.Dispatch<any>) => {
+    if (localStorage.getItem('token')) {
+        fetch(CART_ITEMS, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                dispatch(setCounterBasketElems(data.length));
+            });
+    } else {
+
+    }
+}
+
+export const productFormHandleSubmit = (productId: string | undefined, count: any, oneProduct: OneProductInterface | null, productForm: ProductFormState, setCounterBasketElems: React.Dispatch<React.SetStateAction<any>>, dispatch: React.Dispatch<any>) => {
+    fetch(CART_ITEMS, {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            dispatch(setCounterBasketElems(data.length + 1));
+        })
+        .catch(error => console.log(error));
+
+
+    let thicknessId;
+    oneProduct?.thickness.map((elem: any, index: number) => {
+        if (productForm.thickness === elem.size) thicknessId = index;
+    });
+
+    let colorId;
+    oneProduct?.colors.map((elem: any, index: number) => {
+        if (productForm.color === elem.name) colorId = index;
+    });
+
+    fetch(`https://shyfonyer.shop/api/v1/cart_items?[cart_item]product_id=${productId}&[cart_item]quantity=${count}&[cart_item]product_width=${productForm.width}&[cart_item]product_length=${productForm.height}&[cart_item]product_thickness_id=${thicknessId}&[cart_item]product_color_id=${colorId}`, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+    })
+        .then((response) => response.json())
+        .then((data) => {
+        })
+        .catch(error => console.log(error));
+}
+
+export const productPageUseEffect = async (productId: string | undefined, setOneProductPhoto: React.Dispatch<React.SetStateAction<any>>) => {
+    fetch(`https://shyfonyer.shop/api/v1/products/${productId}`, {
+        method: 'GET',
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            setOneProductPhoto(data.photo);
         })
         .catch(error => console.log(error));
 }
