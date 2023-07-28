@@ -1,11 +1,13 @@
-.partners{
+.partners {
     margin-top: 76px;
-    .partners-title{
+
+    .partners-title {
         padding: 20px 40px;
         font-size: 107px;
         text-transform: uppercase;
     }
-    .partners__header{
+
+    .partners__header {
         padding-bottom: 20px;
         padding-top: 20px;
         display: flex;
@@ -13,21 +15,27 @@
         border-bottom: 1px solid #D1C7A3;
         border-top: 1px solid #D1C7A3;
     }
-    .partners__main{
+
+    .partners__main {
         display: flex;
-        .partners__main__image-block{
+
+        .partners__main__image-block {
             border-right: 1px solid #D1C7A3;
             padding: 20px;
-            img{
+
+            img {
                 width: 100%;
             }
         }
-        .partners__main__block{
+
+        .partners__main__block {
             width: 50%;
         }
-        .partners__main__content-block{
+
+        .partners__main__content-block {
             padding: 100px;
-            h2{
+
+            h2 {
                 margin-bottom: 20px;
                 font-family: 'PP Neue World';
                 font-style: normal;
@@ -35,7 +43,8 @@
                 font-size: 52px;
                 line-height: 100%;
             }
-            p{
+
+            p {
                 font-family: 'Open Sans';
                 font-style: normal;
                 font-weight: 300;
@@ -45,11 +54,12 @@
         }
     }
 
-    .partners__show-all{
-        a{
+    .partners__show-all {
+        a {
             text-decoration: none;
             color: black;
         }
+
         border-top: 1px solid #D1C7A3;
         border-bottom: 1px solid #D1C7A3;
         padding: 20px;
@@ -58,15 +68,18 @@
         cursor: pointer;
     }
 
-    .partners__footer{
+    .partners__footer {
         display: flex;
-        .partners__footer__main-block{
+
+        .partners__footer__main-block {
             width: 50%;
         }
-        .partners__footer__contacts{
+
+        .partners__footer__contacts {
             padding: 100px;
             border-left: 1px solid #D1C7A3;
-            h1{
+
+            h1 {
                 font-family: 'PP Neue World';
                 font-style: normal;
                 font-weight: 400;
@@ -75,24 +88,30 @@
                 text-align: left;
                 text-transform: uppercase;
             }
-            p{
+
+            p {
                 font-size: 18px;
                 font-weight: 400;
             }
-            .partners__footer__contacts-block{
+
+            .partners__footer__contacts-block {
                 margin-top: 70px;
             }
-            .partners__footer__one-block{
+
+            .partners__footer__one-block {
                 margin-top: 20px;
                 display: flex;
-                h1{
+
+                h1 {
                     font-size: 18px;
                     font-weight: 400;
                 }
-                .one-block-information{
+
+                .one-block-information {
                     width: 50%;
                 }
-                p{
+
+                p {
                     width: fit-content;
                 }
             }

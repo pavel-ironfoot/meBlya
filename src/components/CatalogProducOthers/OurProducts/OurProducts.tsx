@@ -1,24 +1,14 @@
 import { useEffect, useState } from 'react';
-import { recomendationFour } from '../../../utils/helpfulFunction';
-import './OurProducts.scss';
 import { NavLink } from 'react-router-dom';
 import { ImageCatalog } from '../ImageCatalog';
-import { error } from 'console';
+import { OurProduct, OurProductsProps } from '../../../utils/types-and-interfaces';
+import { ourProductsUsEffect } from '../../../utils/helpfulFunction';
 
-interface Product {
-    id: number;
-    name: string;
-    company: string;
-    price: number;
-    photo_url: string;
-}
+import './OurProducts.scss';
 
-interface OurProductsProps {
-    title: string;
-}
 
 export const OurProducts: React.FC<OurProductsProps> = ({ title }) => {
-    const [recomendationProducts, setRecomendationProducts] = useState<Product[]>([]);
+    const [recomendationProducts, setRecomendationProducts] = useState<OurProduct[]>([]);
 
     const showRecomendationProducts = recomendationProducts.map((elem) => {
         return <NavLink to={`/show-page/product-page/${elem.id}`} key={elem.name + elem.price}>
@@ -33,15 +23,7 @@ export const OurProducts: React.FC<OurProductsProps> = ({ title }) => {
     });
 
     useEffect(() => {
-        fetch('https://shyfonyer.shop/api/v1/products', {
-            method: 'GET',
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                const generationNumber = recomendationFour();
-                setRecomendationProducts(data.products.slice(generationNumber - 4, generationNumber))
-            })
-            .catch(error => console.log(error));
+        ourProductsUsEffect(setRecomendationProducts);
     }, []);
 
     return (

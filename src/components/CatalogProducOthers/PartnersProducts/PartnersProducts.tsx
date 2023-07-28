@@ -1,18 +1,11 @@
 import { useEffect, useState } from 'react';
-import './PartnersProducts.scss';
-import { getCompanyData } from '../../../utils/helpfulFunction';
+import { getCompanyData, getPartner } from '../../../utils/helpfulFunction';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { ImageCatalog } from '../ImageCatalog';
+import { Product } from '../../../utils/types-and-interfaces';
 
-interface Product {
-    id: number;
-    name: string;
-    company: string;
-    price: string;
-    photo_url: string;
-    category:string;
-  }
+import './PartnersProducts.scss';
 
 export const PartnersProducts: React.FC = () => {
     const {partner} = useParams();
@@ -21,7 +14,6 @@ export const PartnersProducts: React.FC = () => {
     const getResource = async (url:string) => {
         const res = await getCompanyData(url);
         if (res) {
-            console.log(res.product_comapny.slice(0,4));
             setPartnersProducts(res.product_comapny.slice(0,4));
         } else {
             console.log('something going wrong');
@@ -30,20 +22,7 @@ export const PartnersProducts: React.FC = () => {
     }
 
 useEffect(() => {
-    let partnerId = 0;
-
-    switch (partner) {
-        case 'ikea': partnerId = 2;
-            break;
-        case 'jysk': partnerId = 3;
-            break;
-        case 'blum': partnerId = 4;
-            break;
-        case 'kolss': partnerId = 5;
-            break;
-        default:
-            console.log("something goin wrong");
-    }
+    const partnerId = getPartner(partner);
     getResource(`https://shyfonyer.shop/api/v1/companies/${partnerId}`);
 }, [partner]);
 
@@ -53,7 +32,7 @@ const showProducts = partnersProducts.map((elem) => {
         <ImageCatalog photoUrl={elem.photo_url} />
         <div className='main-katalog__about'>
             <div>{elem.company} {elem.name}</div>
-            <div>from {elem.price}</div>
+            <div>від {elem.price}</div>
         </div>
     </div>
     </NavLink>

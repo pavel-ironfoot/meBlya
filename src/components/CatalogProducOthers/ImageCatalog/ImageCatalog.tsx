@@ -1,16 +1,15 @@
-
 import './ImageCatalog.scss';
 
 interface ImageCatalogProps {
-    photoUrl:string;
+    photoUrl: string;
 }
 
-export const ImageCatalog: React.FC<ImageCatalogProps> = ({photoUrl}) =>{
+export const ImageCatalog: React.FC<ImageCatalogProps> = ({ photoUrl }) => {
 
     return (
-           <div className='image-katalog'>
-        <img src={photoUrl} alt="table" />
-    </div> 
+        <div className='image-katalog'>
+            <img src={photoUrl} alt="table" />
+        </div>
     );
 
 }

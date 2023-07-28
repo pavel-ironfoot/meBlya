@@ -1,47 +1,32 @@
 import { useEffect, useState } from 'react';
-import './Partners.scss';
-import { getCompanyData } from '../../../utils/helpfulFunction';
+import { getCompanyData, getPartner } from '../../../utils/helpfulFunction';
 import { useParams } from 'react-router';
 import { NavLink } from 'react-router-dom';
 import { PartnersProducts } from '../PartnersProducts';
-import { useDispatch } from 'react-redux';
-import { companysTitles } from '../../../storeToolkit/companySlice';
+import { PartnersDataTypes } from '../../../utils/types-and-interfaces';
 
-interface PartnersDataTypes {
-    address: string;
-    brand_history: string;
-    description: string;
-    email_publice: string;
-    full_name: string;
-    geolocation: string;
-    id:number;
-    manufacturer_company: string;
-    photo_company_url: string;
-    schedule: string;
-    social_media: string;
-    telephone: string;
-}
+import './Partners.scss';
 
-export const Partners:React.FC = () =>{
-    const dispatch = useDispatch();
-    const {partner} = useParams();
-    
-    const [companyData,setCompanyData] = useState<PartnersDataTypes>({
+
+export const Partners: React.FC = () => {
+    const { partner } = useParams();
+
+    const [companyData, setCompanyData] = useState<PartnersDataTypes>({
         address: '',
         brand_history: '',
         description: '',
         email_publice: '',
         full_name: '',
         geolocation: '',
-        id:0,
+        id: 0,
         manufacturer_company: '',
         photo_company_url: '',
         schedule: '',
         social_media: '',
         telephone: '',
-    });    
+    });
 
-    const getResource = async (url:string) => {
+    const getResource = async (url: string) => {
         const res = await getCompanyData(url);
         if (res) {
             setCompanyData(res.company);
@@ -51,23 +36,10 @@ export const Partners:React.FC = () =>{
 
     }
 
-    useEffect(()=>{
-        let partnerId =0;
-
-        switch(partner){
-            case 'ikea': partnerId =2;
-            break;
-            case 'jysk': partnerId =3;
-            break;
-            case 'blum': partnerId =4;
-            break;
-            case 'kolss': partnerId =5;
-            break;
-            default:
-                console.log("something goin wrong");
-        }
+    useEffect(() => {
+        const partnerId = getPartner(partner)
         getResource(`https://shyfonyer.shop/api/v1/companies/${partnerId}`);
-    },[partner]);
+    }, [partner]);
 
     return (
         <div className='partners'>
@@ -75,7 +47,7 @@ export const Partners:React.FC = () =>{
             <div className='partners__header'>
                 <div>
                     <h3>КРАЇНА-ВИРОБНИК</h3>
-                    {partner==='ikea'?'Швеція':partner==='jysk'?'Данія':partner==='kolss'?'Україна':'Австрія'}
+                    {partner === 'ikea' ? 'Швеція' : partner === 'jysk' ? 'Данія' : partner === 'kolss' ? 'Україна' : 'Австрія'}
                 </div>
                 <div>
                     <h3>ОФІС В УКРАЇНІ</h3>
@@ -106,12 +78,12 @@ export const Partners:React.FC = () =>{
                 <NavLink to={`/catalog/main-catalog`}>
                     <h3>ДО КАТАЛОГУ</h3>
                 </NavLink>
-                
+
             </div>
 
             <footer className='partners__footer'>
                 <div className='partners__footer__map partners__footer__main-block'>
-                    
+
                 </div>
                 <div className='partners__footer__contacts partners__footer__main-block'>
                     <h1>КОНТАКТИ</h1>
@@ -126,7 +98,7 @@ export const Partners:React.FC = () =>{
                             </div>
                         </div>
                         <div className='partners__footer__one-block'>
-                        <div className='one-block-information'>
+                            <div className='one-block-information'>
                                 <h3>ТЕЛЕФОН ОФІСУ</h3>
                             </div>
                             <div className='one-block-information'>
@@ -134,7 +106,7 @@ export const Partners:React.FC = () =>{
                             </div>
                         </div>
                         <div className='partners__footer__one-block'>
-                        <div className='one-block-information'>
+                            <div className='one-block-information'>
                                 <h3>ЕЛЕКТРОННА ПОШТА</h3>
                             </div>
                             <div className='one-block-information'>
@@ -142,7 +114,7 @@ export const Partners:React.FC = () =>{
                             </div>
                         </div>
                         <div className='partners__footer__one-block'>
-                        <div className='one-block-information'>
+                            <div className='one-block-information'>
                                 <h3>АДРЕСА</h3>
                             </div>
                             <div className='one-block-information'>

@@ -1,7 +1,8 @@
 import contactsImage from './../../../images/contacts-address.png';
+
 import './Contacts.scss';
 
-export const Contacts = () =>{
+export const Contacts = () => {
     return (
         <div className='contacts'>
             <div className='contacts-main'>
@@ -21,7 +22,7 @@ export const Contacts = () =>{
                             </div>
                         </div>
                         <div className='contacts-main__one-block'>
-                        <div className='one-block-information'>
+                            <div className='one-block-information'>
                                 <h3>ТЕЛЕФОН ОФІСУ</h3>
                             </div>
                             <div className='one-block-information'>
@@ -29,7 +30,7 @@ export const Contacts = () =>{
                             </div>
                         </div>
                         <div className='contacts-main__one-block'>
-                        <div className='one-block-information'>
+                            <div className='one-block-information'>
                                 <h3>ЕЛЕКТРОННА ПОШТА</h3>
                             </div>
                             <div className='one-block-information'>
@@ -37,7 +38,7 @@ export const Contacts = () =>{
                             </div>
                         </div>
                         <div className='contacts-main__one-block'>
-                        <div className='one-block-information'>
+                            <div className='one-block-information'>
                                 <h3>АДРЕСА</h3>
                             </div>
                             <div className='one-block-information'>

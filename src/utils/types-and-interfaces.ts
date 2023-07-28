@@ -1,11 +1,12 @@
+
 export interface Product {
     id: number;
     name: string;
     company: string;
     price: string;
     photo_url: string;
-}
-
+    category?:string;
+  }
 export interface ShowComponentProps {
     mainProducts: Product[];
     paginationKatalog: JSX.Element[];
@@ -84,4 +85,48 @@ export interface DeliveryProps {
     openDelivery: (value: boolean) => void;
     openPayment: (value: boolean) => void;
     openInformation: (value: boolean) => void;
+}
+
+export interface OurProduct {
+    id: number;
+    name: string;
+    company: string;
+    price: number;
+    photo_url: string;
+}
+
+export interface OurProductsProps {
+    title: string;
+}
+
+export interface PartnersDataTypes {
+    address: string;
+    brand_history: string;
+    description: string;
+    email_publice: string;
+    full_name: string;
+    geolocation: string;
+    id:number;
+    manufacturer_company: string;
+    photo_company_url: string;
+    schedule: string;
+    social_media: string;
+    telephone: string;
+}
+
+export interface OneProductInterface {
+    name: string;
+    article_number: string;
+    company: string;
+    description: string;
+    prices: { thickness: string; price: any }[];
+    colors: { hex: string; name: string }[];
+    thickness: { size: string }[];
+}
+
+export interface ProductFormState {
+    color: string;
+    thickness: string;
+    height: string;
+    width: string;
 }

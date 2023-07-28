@@ -1,64 +1,30 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { productValues } from '../../../formValues/formValues';
-
 import { useDispatch } from 'react-redux';
 import { setCounterBasketElems } from '../../../storeToolkit/counterBasketSlice';
 import { NeedToLogin } from '../../LogRegModal/NeedToLogin';
+import { OneProductInterface, ProductFormState } from '../../../utils/types-and-interfaces';
 
 import './ProductForm.scss';
+import { productFormUseEffect } from '../../../utils/helpfulFunction';
 
-interface OneProductInterface {
-    name: string;
-    article_number: string;
-    company: string;
-    description: string;
-    prices: { thickness: string; price: any }[];
-    colors: { hex: string; name: string }[];
-    thickness: { size: string }[];
-}
 
-interface ProductFormState {
-    color: string;
-    thickness: string;
-    height: string;
-    width: string;
-}
 
 export const ProductForm = () => {
     const dispatch = useDispatch();
     const { productId } = useParams<{ productId: string }>()
 
     const [count, setCount] = useState<any>(1);
+
     const [oneProduct, setOneProduct] = useState<OneProductInterface | null>(null);
-    const [colorsArr, setColorsArr] = useState<any[]>([]);
-    const [thicknessArr, setThicknessArr] = useState<any[]>([]);
+
     const [price, setPrice] = useState<any>();
     const [productForm, setProductForm] = useState<ProductFormState>(productValues);
     const [openModalNeedToLogin,setOpenModalNeedToLogin] = useState<boolean>(false);
 
     useEffect(() => {
-        fetch(`https://shyfonyer.shop/api/v1/products/${productId}`, {
-            method: 'GET',
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setOneProduct(data);
-            });
-        fetch(`https://shyfonyer.shop/api/v1/products/${productId}`, {
-            method: 'GET',
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setThicknessArr(data.thickness);
-            });
-        fetch(`https://shyfonyer.shop/api/v1/products/${productId}`, {
-            method: 'GET',
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setColorsArr(data.colors);
-            });
+        productFormUseEffect(productId,setOneProduct);
     }, [productId]);
 
     useEffect(() => {
@@ -74,7 +40,6 @@ export const ProductForm = () => {
                 .then((response) => response.json())
                 .then((data) => {
                     dispatch(setCounterBasketElems(data.length));
-                    console.log('basket length', data.length);
                 });
         } else {
 
@@ -136,24 +101,15 @@ export const ProductForm = () => {
 
             
             let thicknessId;
-            thicknessArr.map((elem, index) => {
+            oneProduct?.thickness.map((elem, index) => {
                 if (productForm.thickness === elem.size) thicknessId = index;
             })
             let colorId;
-            colorsArr.map((elem: any, index) => {
+            oneProduct?.colors.map((elem: any, index) => {
                 if (productForm.color === elem.name) colorId = index;
             })
             fetch(`https://shyfonyer.shop/api/v1/cart_items?[cart_item]product_id=${productId}&[cart_item]quantity=${count}&[cart_item]product_width=${productForm.width}&[cart_item]product_length=${productForm.height}&[cart_item]product_thickness_id=${thicknessId}&[cart_item]product_color_id=${colorId}`, {
-                // fetch(`http://164.90.237.173/api/v1/cart_items`, {
                 method: 'POST',
-                // body: JSON.stringify({cart_item:{
-                //     product_id:productId,
-                //     quantity:count,
-                //     product_width:productForm.width,
-                //     product_length:productForm.height,
-                //     product_thickness_id:thicknessId,
-                //     product_color_id:colorId,
-                // }}),
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
@@ -168,20 +124,18 @@ export const ProductForm = () => {
             
         } else {
             setOpenModalNeedToLogin(true);
-            // dispatch(modalIsAction(true));
-            console.log('fuck fuck fuck, you need to logIn');
         }
     }
 
 
-    const colorsArray = colorsArr.map((elem, index) => {
+    const colorsArray = oneProduct?.colors.map((elem, index) => {
         return <span key={elem.hex + index}>
             <input onChange={handleColorChange} type="radio" name='color' id={`black${index}`} value={elem.name} />
             <label className='label-color' htmlFor={`black${index}`}><span style={{ backgroundColor: elem.hex }} className="black"></span></label>
         </span>
     })
 
-    const thicknessShow = thicknessArr.map((elem, index) => {
+    const thicknessShow = oneProduct?.thickness.map((elem, index) => {
         return <span key={elem.size + index}>
             <input onChange={handleThicknessChange} type="radio" name='thickness' id={`thickness${index}`} value={elem.size} />
             <label className='label-thickness' htmlFor={`thickness${index}`}><span className="thickness">{elem.size} мм</span></label>

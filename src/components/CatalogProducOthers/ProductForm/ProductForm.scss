@@ -15,6 +15,7 @@
         font-size: 24px;
         font-weight: 400;
         border-radius: 4px;
+        cursor: pointer;
     }
     .product-page__main-form__addToBasket:hover{
         width: 500px;
@@ -103,7 +104,7 @@
 .product-page__form-field__count input{
     border: none;
     padding: 0px;
-    width: 27px;
+    width: 21px;
     background-color: #EBE6D7;
 }
 .product-page__form-field_plus-minus{
@@ -111,7 +112,9 @@
     font-size: 20px;
     border: none;
     background-color: #EBE6D7;
+    cursor: pointer;
 }
 .product-page__form-field__count-wrapper{
     border:1px solid #D1C7A3;
+    width: 90px;
 }

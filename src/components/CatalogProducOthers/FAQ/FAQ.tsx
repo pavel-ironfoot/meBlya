@@ -1,4 +1,4 @@
-export const FAQ = () =>{
+export const FAQ = () => {
     return (
         <div className="privacy-policy">
             <div className='privacy-policy__title'>

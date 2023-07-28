@@ -1,52 +1,63 @@
-.contacts{
+.contacts {
     margin-top: 76px;
-    .contacts-main{
+
+    .contacts-main {
         display: flex;
-        >div{
+
+        >div {
             width: 50%;
         }
-        .contacts-main__image{
+
+        .contacts-main__image {
             padding: 20px;
             border-right: 1px solid #D1C7A3;
         }
-        .contacts-main__information{
-                padding: 100px;
-                >h1{
-                    font-family: 'PP Neue World';
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: 107px;
-                    line-height: 100%;
-                    margin-top: 134px;
-                }
-                >p{
-                    font-family: 'Open Sans';
-                    font-style: normal;
-                    font-weight: 400;
+
+        .contacts-main__information {
+            padding: 100px;
+
+            >h1 {
+                font-family: 'PP Neue World';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 107px;
+                line-height: 100%;
+                margin-top: 134px;
+            }
+
+            >p {
+                font-family: 'Open Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 135%;
+                letter-spacing: -0.03em;
+                margin-top: 80px;
+                margin-bottom: 150px;
+            }
+
+            .contacts-main__contacts-block {
+                margin-top: 70px;
+            }
+
+            .contacts-main__one-block {
+                margin-top: 20px;
+                display: flex;
+
+                h1 {
                     font-size: 18px;
-                    line-height: 135%;
-                    letter-spacing: -0.03em;
-                    margin-top: 80px;
-                    margin-bottom: 150px;
+                    font-weight: 400;
                 }
-                .contacts-main__contacts-block{
-                    margin-top: 70px;
+
+                .one-block-information {
+                    width: 50%;
                 }
-                .contacts-main__one-block{
-                    margin-top: 20px;
-                    display: flex;
-                    h1{
-                        font-size: 18px;
-                        font-weight: 400;
-                    }
-                    .one-block-information{
-                        width: 50%;
-                    }
-                    p{
-                        width: fit-content;
-                    }
+
+                p {
+                    width: fit-content;
                 }
-            
+            }
+
         }
     }
 }

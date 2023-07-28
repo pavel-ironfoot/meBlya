@@ -378,3 +378,44 @@ export const loginAndBasketUseEffect = async(setShowBasketCounter: React.Dispatc
         setShowBasketCounter(false)
     }
 }
+
+export const ourProductsUsEffect = async (setRecomendationProducts: React.Dispatch<React.SetStateAction<any>>) =>{
+    fetch(PRODUCTS_PAGE1, {
+        method: 'GET',
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            const generationNumber = recomendationFour();
+            setRecomendationProducts(data.products.slice(generationNumber - 4, generationNumber))
+        })
+        .catch(error => console.log(error));
+}
+
+export const getPartner = (partner:string | undefined) => {
+    let partnerId =0;
+
+    switch(partner){
+        case 'ikea': partnerId =2;
+        break;
+        case 'jysk': partnerId =3;
+        break;
+        case 'blum': partnerId =4;
+        break;
+        case 'kolss': partnerId =5;
+        break;
+        default:
+            console.log("something goin wrong");
+    }
+    return partnerId;
+}
+
+export const productFormUseEffect = async(productId:string | undefined,setOneProduct:React.Dispatch<React.SetStateAction<any>>) =>{
+    fetch(`https://shyfonyer.shop/api/v1/products/${productId}`, {
+        method: 'GET',
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            setOneProduct(data);
+        })
+        .catch(error => console.log(error));
+}

@@ -1,12 +1,14 @@
-.privacy-policy{
+.privacy-policy {
     margin-top: 76px;
     display: flex;
     background-color: #EBE6D7;
-    .privacy-policy__title{
+
+    .privacy-policy__title {
         flex-wrap: 1;
         border-right: 1px solid #D1C7A3;
         padding: 22px;
-        >h1{
+
+        >h1 {
             font-family: 'PP Neue World';
             font-style: normal;
             font-weight: 400;
@@ -14,10 +16,12 @@
             line-height: 100%;
         }
     }
-    .privacy-policy__text{
+
+    .privacy-policy__text {
         flex-grow: 2;
         padding: 84px;
-        >p{
+
+        >p {
             margin-top: 26px;
             font-family: 'Open Sans';
             font-style: normal;
@@ -25,7 +29,8 @@
             font-size: 18px;
             line-height: 135%;
         }
-        >h3{
+
+        >h3 {
             margin-top: 85px;
             font-family: 'Open Sans';
             font-style: normal;

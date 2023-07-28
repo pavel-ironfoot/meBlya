@@ -13,19 +13,23 @@
     justify-content: space-between;
     padding-left: 15px;
     padding-right: 15px;
-    .main-header__right-login{
+
+    .main-header__right-login {
         display: flex;
     }
-    .main-header__right-login__basket{
-        border:1px solid black;
+
+    .main-header__right-login__basket {
+        border: 1px solid black;
         padding-top: 28px;
     }
 }
-.main-header__center-header{
-    >a{
+
+.main-header__center-header {
+    >a {
         color: black;
         text-decoration: none;
-        .main-header__center-header__title{
+
+        .main-header__center-header__title {
             font-family: 'Open Sans';
             font-style: normal;
             font-weight: 800;
@@ -34,20 +38,25 @@
         }
     }
 }
-.main-header__left-burger{
+
+.main-header__left-burger {
     display: flex;
 }
-.main-header__left-burger__catalog{
+
+.main-header__left-burger__catalog {
     margin-left: 20px;
-    a{
+
+    a {
         text-decoration: none;
         color: black;
     }
 }
-.main-header__left-burger__catalog a{   
+
+.main-header__left-burger__catalog a {
     text-decoration: none;
 }
-.main-header__left-burger__picture{
+
+.main-header__left-burger__picture {
     cursor: pointer;
     margin-top: 4px;
 }

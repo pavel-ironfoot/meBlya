@@ -1,20 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-
 import burgerMenu from '../../../images/header/vector.png';
-import basketLogo from '../../../images/header/basket-logo.png'
-
 import { ModalMenu } from "../ModalMenu";
-import { AllPopup } from "../../LogRegModal/AllPopup";
-import { BasketContainer } from "../../Basket/BasketContainer/BasketContainer";
+import { LogInAndBasket } from "../../Basket/LogInAndBasket";
 
 import './Header.scss';
-import { LogInAndBasket } from "../../Basket/LogInAndBasket";
 
 export const Header = () => {
 
     const [showModalMenu, setShowModalMenu] = useState(false);
-    const [showBasket, setShowBasket] = useState(false);
 
     return (
         <header className="main-header">
