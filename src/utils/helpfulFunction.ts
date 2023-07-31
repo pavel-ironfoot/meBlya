@@ -1,4 +1,4 @@
-import { CART_ITEMS, PRODUCTS_NAME_PAGE1, PRODUCTS_NAME_PAGE2, PRODUCTS_PAGE1, PRODUCTS_PAGE2, getUrl1, getUrl2 } from "./consts";
+import { CART_ITEMS, MY_ORDERS, PRODUCTS_NAME_PAGE1, PRODUCTS_NAME_PAGE2, PRODUCTS_PAGE1, PRODUCTS_PAGE2, USER_ME, getUrl1, getUrl2 } from "./consts";
 import { OneProductInterface, Product, ProductFormState } from "./types-and-interfaces";
 
 export const divideArr = (arr: string[]): [string, string] => {
@@ -488,31 +488,31 @@ export const productPageUseEffect = async (productId: string | undefined, setOne
         .catch(error => console.log(error));
 }
 
-export const logOutRequest = async () =>{
+export const logOutRequest = async () => {
     fetch('https://shyfonyer.shop/api/v1/deauth/signout_user', {
         method: 'DELETE',
-      })
+    })
         .then(response => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          console.log('User is signout.');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            console.log('User is signout.');
         })
         .catch(error => {
-          console.error('Some error', error);
+            console.error('Some error', error);
         });
 }
 
-export const allPopupUseEffect = (setWhoIsLogged: React.Dispatch<React.SetStateAction<any>>,userIsLoggin:any,dispatch: React.Dispatch<any>) =>{
+export const allPopupUseEffect = (setWhoIsLogged: React.Dispatch<React.SetStateAction<any>>, userIsLoggin: any, dispatch: React.Dispatch<any>) => {
     if (localStorage.getItem('token') !== null && localStorage.getItem('token') !== 'undefined') {
         dispatch(userIsLoggin(true));
     } else { dispatch(userIsLoggin(false)) }
-        if (localStorage.getItem('loginUser') !== null && localStorage.getItem('loginUser') !== 'undefined') {
-            setWhoIsLogged(localStorage.getItem('loginUser'));
-        } else { setWhoIsLogged('гість'); }
+    if (localStorage.getItem('loginUser') !== null && localStorage.getItem('loginUser') !== 'undefined') {
+        setWhoIsLogged(localStorage.getItem('loginUser'));
+    } else { setWhoIsLogged('гість'); }
 }
 
-export const forgotPasswordRequest = async(loginForm:{email:string,password:string}) =>{
+export const forgotPasswordRequest = async (loginForm: { email: string, password: string }) => {
     fetch('https://shyfonyer.shop/api/v1/user/password/forgot', {
         method: 'POST',
         body: JSON.stringify({
@@ -525,4 +525,108 @@ export const forgotPasswordRequest = async(loginForm:{email:string,password:stri
         .then((response) => response.json())
         .then((json) => console.log(json))
         .catch(error => console.log(error))
+}
+
+export const saveChangesChangePasswordSecondPage = async (old_password: string, changePassword: any) => {
+    if (localStorage.getItem('token')) {
+        fetch(USER_ME, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                fetch(`https://shyfonyer.shop/api/v1/user/update_password/${data.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    },
+                    body: JSON.stringify({
+                        old_password: old_password,
+                        new_password: changePassword.password,
+                    })
+                })
+                    .then(response => response.json())
+                    .then(data => console.log(data))
+                    .catch(error => console.error(error))
+            });
+
+    }
+}
+
+export const personalDataSaveChanges = async (id: number, personalInformationForm: any, setChangeMain: React.Dispatch<React.SetStateAction<any>>) => {
+    if (localStorage.getItem('token')) {
+        fetch(`https://shyfonyer.shop/api/v1/users/${id}?[user]full_name=${personalInformationForm.full_name}&[user]last_name=${personalInformationForm.last_name}&[user]patronymic=${personalInformationForm.patronymic}&[user]email=${personalInformationForm.email}&[user]phone_number=${personalInformationForm.phone_number}`, {
+            method: 'PATCH',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                 
+            })
+            .catch(error => console.log(error))
+    }
+}
+
+export const myOrdersUseEffect = async (setShowPersonalOrders: React.Dispatch<React.SetStateAction<any>>, setAllOrders: React.Dispatch<React.SetStateAction<any>>) => {
+    if (localStorage.getItem('token')) {
+        setShowPersonalOrders(true);
+        fetch(MY_ORDERS, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setAllOrders(data);
+            });
+    } else {
+        setShowPersonalOrders(false);
+    }
+}
+
+export const oneOrderUseEffect = async (id: number, setOneUserOrders: React.Dispatch<React.SetStateAction<any>>) => {
+    if (localStorage.getItem('token')) {
+        fetch(`https://shyfonyer.shop/api/v1/orders/${id}`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setOneUserOrders(data);
+            })
+            .catch(error => console.log(error))
+    }
+}
+
+export const personaldataUseEffect = async (setShowPersonalData: React.Dispatch<React.SetStateAction<any>>, setAllPersonalData: React.Dispatch<React.SetStateAction<any>>) => {
+    if (localStorage.getItem('token')) {
+        setShowPersonalData(true);
+        fetch(USER_ME, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('token')}`,
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setAllPersonalData(data);
+            })
+            .catch(error => console.log(error))
+    } else {
+        setShowPersonalData(false);
+    }
 }

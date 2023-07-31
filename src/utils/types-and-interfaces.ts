@@ -162,3 +162,78 @@ export interface ModalForgetPasswordProps {
 export interface RegistrationPageProps {
     setPopup: (value: string) => void;
 }
+
+export interface ChangePasswordType {
+    password: string;
+    confirmPassword: string;
+}
+
+export interface ChangePasswordSecondPageProps {
+    old_password: string;
+}
+
+export interface AllPersonalDataType {
+    id: number;
+    full_name: string;
+    email: string;
+    role: string;
+    last_name: string;
+    patronymic: string;
+    phone_number: string;
+}
+
+export interface EditPersonalDataProps {
+    setChangeMain: (value: boolean) => void;
+    id: number;
+}
+
+export interface ShowPersonalOrdersType {
+    apartment_number: string;
+    building_number: string;
+    cart_id: number;
+    comment: string;
+    company_id: number;
+    company_status: string;
+    created_at: string;
+    delivery_location: string;
+    delivery_location_id: number;
+    email: string;
+    entrance_number: string;
+    first_name: string;
+    id: number;
+    last_name: string;
+    payment_method: string;
+    payment_method_id: number;
+    phone_number: string;
+    street_name: string;
+    updated_at: string;
+    user_id: number;
+    warehouse_address_id: any
+    warehouse_status: string;
+}
+
+export interface OneOrderProps {
+    id: number;
+}
+
+export interface OneUserOrdersType {
+    order: {
+        id: number | null,
+        company_status: string,
+    };
+    products: any[];
+}
+
+export interface OneProductImageProps {
+    photoUrl: string;
+}
+
+export interface AllPersonalDataTypePersonalData {
+    id: number;
+    full_name: string;
+    email: string;
+    role: string;
+    last_name: string;
+    patronymic: string;
+    phone_number: string | number;
+}

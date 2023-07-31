@@ -1,25 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
 import { FormField } from '../../LogRegModal/FormField';
-import './EditPersonalData.scss';
 import { validationEmail, validationNameKirLat, validationNumber } from '../../../validationFields/validation';
 import { NavLink } from 'react-router-dom';
+import { AllPersonalDataType, EditPersonalDataProps } from '../../../utils/types-and-interfaces';
+import { personalDataSaveChanges } from '../../../utils/helpfulFunction';
 
-interface AllPersonalDataType {
-    id: number;
-    full_name: string;
-    email: string;
-    role: string;
-    last_name: string;
-    patronymic: string;
-    phone_number: string;
-}
-interface EditPersonalDataProps {
-    setChangeMain: (value:boolean) => void;
-    id:number;
-  }
+import './EditPersonalData.scss';
 
-export const EditPersonalData: React.FC<EditPersonalDataProps> = ({id,setChangeMain}) => {
-    const [disabled,setDisabled] = useState<boolean>(true);
+export const EditPersonalData: React.FC<EditPersonalDataProps> = ({ id, setChangeMain }) => {
+    const [disabled, setDisabled] = useState<boolean>(true);
     const [personalInformationForm, setPersonalInformationForm] = useState<AllPersonalDataType>({
         id: 0,
         full_name: '',
@@ -34,22 +23,8 @@ export const EditPersonalData: React.FC<EditPersonalDataProps> = ({id,setChangeM
         setPersonalInformationForm({ ...personalInformationForm, [key]: value });
     }
 
-    const handleSaveChanges = () =>{
-        if (localStorage.getItem('token')) {
-            fetch(`https://shyfonyer.shop/api/v1/users/${id}?[user]full_name=${personalInformationForm.full_name}&[user]last_name=${personalInformationForm.last_name}&[user]patronymic=${personalInformationForm.patronymic}&[user]email=${personalInformationForm.email}&[user]phone_number=${personalInformationForm.phone_number}`, {
-                method: 'PATCH',
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data);
-                });
-                setChangeMain(false);
-        } 
-        console.log(personalInformationForm);
+    const handleSaveChanges = async() => {
+        await personalDataSaveChanges(id, personalInformationForm, setChangeMain);
     }
 
     const first_nameRegistrationError = useMemo(() => validationNameKirLat(personalInformationForm.full_name), [personalInformationForm.full_name]);
@@ -58,13 +33,13 @@ export const EditPersonalData: React.FC<EditPersonalDataProps> = ({id,setChangeM
     const numberRegistrationError = useMemo(() => validationNumber(personalInformationForm.phone_number), [personalInformationForm.phone_number]);
     const emailRegistrationError = useMemo(() => validationEmail(personalInformationForm.email), [personalInformationForm.email]);
 
-    useEffect(()=>{
-        if(first_nameRegistrationError==='nomistake' && second_nameRegistrationError==='nomistake' && third_nameRegistrationError==='nomistake' && numberRegistrationError==='nomistake' && emailRegistrationError==='nomistake'){
+    useEffect(() => {
+        if (first_nameRegistrationError === 'nomistake' && second_nameRegistrationError === 'nomistake' && third_nameRegistrationError === 'nomistake' && numberRegistrationError === 'nomistake' && emailRegistrationError === 'nomistake') {
             setDisabled(false);
-        }else{
+        } else {
             setDisabled(true);
         }
-    },[personalInformationForm])
+    }, [personalInformationForm])
 
     return (
         <div className='my-orders'>

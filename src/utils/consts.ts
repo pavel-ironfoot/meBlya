@@ -13,3 +13,5 @@ export const getUrl2 = (startCompany: string, startPrice: string, endPrice: stri
 }
 
 export const CART_ITEMS = `https://shyfonyer.shop/api/v1/cart_items`;
+export const USER_ME = `https://shyfonyer.shop/api/v1/user/me`;
+export const MY_ORDERS = `https://shyfonyer.shop/api/v1/orders`;

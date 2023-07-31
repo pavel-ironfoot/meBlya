@@ -1,55 +1,16 @@
 import { useEffect, useState } from 'react';
-import './MyOrders.scss';
 import { OneOrder } from '../OneOrder/OneOrder';
+import { ShowPersonalOrdersType } from '../../../utils/types-and-interfaces';
+import { myOrdersUseEffect } from '../../../utils/helpfulFunction';
 
-
-interface ShowPersonalOrdersType {
-    apartment_number:string;
-    building_number:string;
-    cart_id:number;
-    comment:string;
-    company_id:number;
-    company_status:string;
-    created_at:string;
-    delivery_location:string;
-    delivery_location_id:number;
-    email:string;
-    entrance_number:string;
-    first_name:string;
-    id:number;
-    last_name:string;
-    payment_method:string;
-    payment_method_id:number;
-    phone_number:string;
-    street_name:string;
-    updated_at:string;
-    user_id:number;
-    warehouse_address_id:any
-    warehouse_status:string;
-}
+import './MyOrders.scss';
 
 export const MyOrders: React.FC = () => {
     const [showPersonalOrders, setShowPersonalOrders] = useState<boolean>(false);
     const [allOrders, setAllOrders] = useState<ShowPersonalOrdersType[] | []>([]);
 
-
     useEffect(() => {
-        if (localStorage.getItem('token')) {
-            setShowPersonalOrders(true);
-            fetch(`https://shyfonyer.shop/api/v1/orders`, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                },
-            })
-                .then((response) => response.json())
-                .then((data) => {
-                    setAllOrders(data);
-                });
-        } else {
-            setShowPersonalOrders(false);
-        }
+        myOrdersUseEffect(setShowPersonalOrders, setAllOrders);
     }, []);
 
     const showAllOrders = (allOrders && allOrders.length > 0) ? allOrders.map(elem => {

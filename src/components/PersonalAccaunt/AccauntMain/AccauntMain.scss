@@ -1,18 +1,21 @@
-.accaunt-main{
+.accaunt-main {
     background-color: #EBE6D7;
     margin-top: 76px;
-    .accaunt-main__title{
+
+    .accaunt-main__title {
         border-bottom: 1px solid #D1C7A3;
-        .accaunt-main__h1{
+
+        .accaunt-main__h1 {
             text-align: center;
             font-size: 83px;
         }
     }
 
-    .accaunt-main__container{
+    .accaunt-main__container {
         display: flex;
     }
-    .accaunt-main__main{
+
+    .accaunt-main__main {
         flex-grow: 4;
     }
 }

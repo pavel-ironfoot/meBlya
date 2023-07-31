@@ -1,9 +1,11 @@
-.my-orders{
+.my-orders {
     padding: 20px;
-    .form-field__input{
+
+    .form-field__input {
         margin: 0;
     }
-    .my-orders__btn{
+
+    .my-orders__btn {
         padding: 20px;
         background-color: #645832;
         font-size: 18px;
@@ -12,7 +14,8 @@
         margin-top: 20px;
         width: 400px;
     }
-    .my-orders__btn:disabled{
+
+    .my-orders__btn:disabled {
         padding: 20px;
         background-color: #c7bb94;
         font-size: 18px;

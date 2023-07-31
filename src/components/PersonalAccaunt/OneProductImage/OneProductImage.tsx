@@ -1,8 +1,5 @@
+import { OneProductImageProps } from '../../../utils/types-and-interfaces';
 import './OneProductImage.scss';
-
-interface OneProductImageProps {
-    photoUrl:string;
-}
 
 export const OneProductImage: React.FC<OneProductImageProps> = ({photoUrl}) =>{
 

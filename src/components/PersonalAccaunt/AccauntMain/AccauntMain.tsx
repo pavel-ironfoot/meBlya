@@ -3,13 +3,12 @@ import { PersonalData } from '../PersonalData';
 import { MyOrders } from '../MyOrders';
 import { ChangePassword } from '../ChangePassword';
 import { Aside } from '../Aside';
-
-import './AccauntMain.scss';
 import { OkPage } from '../OkPage';
 import { ErrorPage } from '../ErrorPage';
 
-export const AccauntMain = () => {
+import './AccauntMain.scss';
 
+export const AccauntMain = () => {
     return (
         <div className='accaunt-main'>
             <div className='accaunt-main__title'>
@@ -28,7 +27,6 @@ export const AccauntMain = () => {
                     </Routes>
                 </div>
             </div>
-
         </div>
     );
 }

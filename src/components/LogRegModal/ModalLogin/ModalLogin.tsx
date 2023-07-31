@@ -22,7 +22,6 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
 
     const getResource = async (url: string, emailForm: string, passwordForm: string) => {
         const res = await postLoginResource(url, emailForm, passwordForm);
-        console.log('new new new ', res);
         if (res) {
             if (res.token) dispatch(userIsLoggin(true));
             dispatch(userToken(res.token));
@@ -34,7 +33,6 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
                 dispatch(modalIsAction(false));
                 setSomeErrorEmailPassword('');
             } else {
-                console.log('something going wrong');
                 setSomeErrorEmailPassword('хтось натупив');
             }
   
