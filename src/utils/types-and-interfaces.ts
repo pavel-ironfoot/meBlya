@@ -169,6 +169,7 @@ export interface ChangePasswordType {
 }
 
 export interface ChangePasswordSecondPageProps {
+    setChangePasswordDone: (value:string) => void;
     old_password: string;
 }
 

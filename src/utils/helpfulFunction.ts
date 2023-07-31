@@ -523,11 +523,11 @@ export const forgotPasswordRequest = async (loginForm: { email: string, password
         },
     })
         .then((response) => response.json())
-        .then((json) => console.log(json))
+        .then((json) => console.log())
         .catch(error => console.log(error))
 }
 
-export const saveChangesChangePasswordSecondPage = async (old_password: string, changePassword: any) => {
+export const saveChangesChangePasswordSecondPage = async (old_password: string, changePassword: any,setChangePasswordDone: React.Dispatch<React.SetStateAction<any>>) => {
     if (localStorage.getItem('token')) {
         fetch(USER_ME, {
             method: 'GET',
@@ -550,11 +550,20 @@ export const saveChangesChangePasswordSecondPage = async (old_password: string, 
                         new_password: changePassword.password,
                     })
                 })
-                    .then(response => response.json())
-                    .then(data => console.log(data))
-                    .catch(error => console.error(error))
-            });
-
+                    .then(response => {
+                        if(response.ok){
+                            setChangePasswordDone('successfully')
+                        }else{
+                            setChangePasswordDone('nosuccessfully')
+                        }
+                        response.json()})
+                    .then(data => {
+                    })
+                    .catch(error => {
+                        console.error(error)
+                    })
+            })
+            .catch(error=>console.log('main error',error))
     }
 }
 
@@ -569,7 +578,7 @@ export const personalDataSaveChanges = async (id: number, personalInformationFor
         })
             .then((response) => response.json())
             .then((data) => {
-                 
+                setChangeMain(false);
             })
             .catch(error => console.log(error))
     }

@@ -21,7 +21,7 @@ export const PersonalData: React.FC = () => {
 
     useEffect(() => {
         personaldataUseEffect(setShowPersonalData, setAllPersonalData);
-    }, []);
+    }, [changeMain]);
 
     return (
         <div className='personal-data'>

@@ -1,13 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import { validPassword } from '../../../validationFields/validation';
 import { FormField } from '../../LogRegModal/FormField';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 import { ChangePasswordSecondPageProps, ChangePasswordType } from '../../../utils/types-and-interfaces';
 import { saveChangesChangePasswordSecondPage } from '../../../utils/helpfulFunction';
 
 import './ChangePasswordSecondPage.scss';
 
-export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> = ({ old_password }) => {
+export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> = ({ setChangePasswordDone, old_password }) => {
     const [disabled, setDisabled] = useState(true);
     const [equalPassword, setEqualPassword] = useState<boolean>(false);
     const [changePassword, setChangePassword] = useState<ChangePasswordType>({
@@ -16,13 +16,14 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
     });
 
     const handleSaveChanges = async () => {
-        await saveChangesChangePasswordSecondPage(old_password, changePassword);
+        await saveChangesChangePasswordSecondPage(old_password, changePassword,setChangePasswordDone);
     }
 
     const setRegistrationValue = (key: string, value: string) => {
         setChangePassword({ ...changePassword, [key]: value });
     }
 
+    const passwordRegistrationError = useMemo(() => validPassword(changePassword.password), [changePassword.password]);
     useEffect(() => {
         if (changePassword.password === changePassword.confirmPassword) {
             setEqualPassword(true);
@@ -33,8 +34,7 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
         } else { setDisabled(true); }
     }, [changePassword]);
 
-    const passwordRegistrationError = useMemo(() => validPassword(changePassword.password), [changePassword.password]);
-
+    
     return (
         <div className='change-password-second-page'>
             <FormField
@@ -61,9 +61,9 @@ export const ChangePasswordSecondPage: React.FC<ChangePasswordSecondPageProps> =
 
             {(changePassword.password !== '' && equalPassword) ? <p></p> : <p className="red__mistake">паролі не співпадають</p>}
 
-            <NavLink to={'/show-page/personal-accaunt/ok-page'}>
+            {/* <NavLink to={'/show-page/personal-accaunt/ok-page'}> */}
                 <button className='change-password-second-page__btn' onClick={handleSaveChanges} disabled={disabled}>ЗБЕРЕГТИ ЗМІНИ</button>
-            </NavLink>
+            {/* </NavLink> */}
         </div>
     );
 }
