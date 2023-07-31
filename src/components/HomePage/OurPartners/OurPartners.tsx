@@ -5,7 +5,7 @@ import partner3 from './../../../images/partners/blum.png';
 
 import './OurPartners.scss';
 
-export const OurPartners = () =>{
+export const OurPartners = () => {
     return (
         <div className='our-partners'>
             <h1>НАШІ ПАРТНЕРИ</h1>
@@ -38,11 +38,11 @@ export const OurPartners = () =>{
                 </div>
             </div>
 
-            <div className="home-page__show-all">                
+            <div className="home-page__show-all">
                 <NavLink to={'/show-page/our-partners'}>
-                        <button className="home-page__show-all__button">
-                            ПЕРЕГЛЯНУТИ ВСІ
-                        </button>
+                    <button className="home-page__show-all__button">
+                        ПЕРЕГЛЯНУТИ ВСІ
+                    </button>
                 </NavLink>
             </div>
         </div>

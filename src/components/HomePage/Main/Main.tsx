@@ -1,11 +1,12 @@
-import './Main.scss';
-import main12 from'./../../../images/main/main12.png';
-import main10 from'./../../../images/main/main10.png';
-import main2 from'./../../../images/main/main2.png';
-import main3 from'./../../../images/main/main3.png';
-import main5 from'./../../../images/main/main5.png';
-import main8 from'./../../../images/main/main8.png';
+import main12 from './../../../images/main/main12.png';
+import main10 from './../../../images/main/main10.png';
+import main2 from './../../../images/main/main2.png';
+import main3 from './../../../images/main/main3.png';
+import main5 from './../../../images/main/main5.png';
+import main8 from './../../../images/main/main8.png';
 import { NavLink } from 'react-router-dom';
+
+import './Main.scss';
 
 export const Main = () => {
     return (
@@ -13,7 +14,7 @@ export const Main = () => {
             <div className="main-container__info">
                 <h1 className="main-container__info-title">ІДЕАЛЬНІ ЛІНІЇ І</h1>
                 <h1 className="main-container__info-title">ВИТОНЧЕНІ ФОРМИ</h1>
-                <h1 className="main-container__info-title">НАШИХ ВИРОБІВ</h1>                     
+                <h1 className="main-container__info-title">НАШИХ ВИРОБІВ</h1>
                 <p className="main-container__info-p">
                     SHYFON’YER пропонує клієнтам широкий асортимент виробників фасадів, аби кожен міг обрати для себе найкращі
                     варіанти за найвигіднішими цінами. За потреби, ми створимо для вас найсучасніші меблі із обраних товарів,

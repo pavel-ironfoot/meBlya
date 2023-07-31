@@ -5,8 +5,8 @@ export interface Product {
     company: string;
     price: string;
     photo_url: string;
-    category?:string;
-  }
+    category?: string;
+}
 export interface ShowComponentProps {
     mainProducts: Product[];
     paginationKatalog: JSX.Element[];
@@ -106,7 +106,7 @@ export interface PartnersDataTypes {
     email_publice: string;
     full_name: string;
     geolocation: string;
-    id:number;
+    id: number;
     manufacturer_company: string;
     photo_company_url: string;
     schedule: string;
@@ -131,3 +131,34 @@ export interface ProductFormState {
     width: string;
 }
 
+export interface ConfirmForgotPasswordProps {
+    setPopup: (value: string) => void;
+}
+
+export interface FormFieldProps {
+    placeholder: string;
+    label: string;
+    value: string;
+    type: string;
+    name: string;
+    id: string;
+    setChange: (value: string) => void;
+}
+
+export interface ModalLoginProps {
+    setPopup: (value: string) => void;
+}
+
+export interface LoginValuetypes {
+    email: string;
+    password: string;
+}
+
+export interface ModalForgetPasswordProps {
+    setActive: (value: boolean) => void;
+    active: boolean;
+}
+
+export interface RegistrationPageProps {
+    setPopup: (value: string) => void;
+}

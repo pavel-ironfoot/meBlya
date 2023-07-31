@@ -487,3 +487,42 @@ export const productPageUseEffect = async (productId: string | undefined, setOne
         })
         .catch(error => console.log(error));
 }
+
+export const logOutRequest = async () =>{
+    fetch('https://shyfonyer.shop/api/v1/deauth/signout_user', {
+        method: 'DELETE',
+      })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          console.log('User is signout.');
+        })
+        .catch(error => {
+          console.error('Some error', error);
+        });
+}
+
+export const allPopupUseEffect = (setWhoIsLogged: React.Dispatch<React.SetStateAction<any>>,userIsLoggin:any,dispatch: React.Dispatch<any>) =>{
+    if (localStorage.getItem('token') !== null && localStorage.getItem('token') !== 'undefined') {
+        dispatch(userIsLoggin(true));
+    } else { dispatch(userIsLoggin(false)) }
+        if (localStorage.getItem('loginUser') !== null && localStorage.getItem('loginUser') !== 'undefined') {
+            setWhoIsLogged(localStorage.getItem('loginUser'));
+        } else { setWhoIsLogged('гість'); }
+}
+
+export const forgotPasswordRequest = async(loginForm:{email:string,password:string}) =>{
+    fetch('https://shyfonyer.shop/api/v1/user/password/forgot', {
+        method: 'POST',
+        body: JSON.stringify({
+            email: loginForm.email,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((json) => console.log(json))
+        .catch(error => console.log(error))
+}

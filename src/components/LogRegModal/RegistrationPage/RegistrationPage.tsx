@@ -1,61 +1,39 @@
 import { useEffect, useMemo, useState } from 'react';
-
 import { FormField } from '../FormField';
 import { validPassword, validationEmail, validationNameKirLat } from '../../../validationFields/validation';
-
-import './RegistrationPage.scss';
 import { registrationValue } from '../../../formValues/formValues';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../storeToolkit';
 import { modalIsAction } from '../../../storeToolkit/isLogModalSlice';
 import { postRegistrationResource } from '../../../utils/helpfulFunction';
+import { RegistrationPageProps } from '../../../utils/types-and-interfaces';
 
-interface RegistrationPageProps {
-    setPopup: (value:string) => void;
-  }
+import './RegistrationPage.scss';
 
-export const RegistrationPage:  React.FC<RegistrationPageProps> = ({ setPopup }) => {
+export const RegistrationPage: React.FC<RegistrationPageProps> = ({ setPopup }) => {
     const dispatch = useDispatch();
     const [disabled, setDisabled] = useState(true);
     const [registrationForm, setRegistrationForm] = useState(registrationValue);
-    const [registrationError,setRegistrationError] = useState('');
-    const [equalPasswords,setEqualPasswords] = useState<string>('');
+    const [registrationError, setRegistrationError] = useState('');
+    const [equalPasswords, setEqualPasswords] = useState<string>('');
 
-    const activeModal = useSelector((state: RootState) =>state.logReg.modalAction);
+    const activeModal = useSelector((state: RootState) => state.logReg.modalAction);
 
-    const getResource = async (url:string,name:string,email:string,password:string) => {
-        const res = await postRegistrationResource(url,name,email,password);
+    const getResource = async (url: string, name: string, email: string, password: string) => {
+        const res = await postRegistrationResource(url, name, email, password);
         if (res) {
             setPopup('login');
             setRegistrationError('');
         } else {
             setRegistrationError('хтось натупив');
-            console.log('something going wrong');
         }
-
     }
-
-
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         console.log('registration is submit');
-            console.log(registrationForm);
-            getResource('https://shyfonyer.shop/api/v1/users',registrationForm.first_name,registrationForm.email,registrationForm.password,);
-            // fetch('https://shyfonyer.shop/api/v1/users', {
-            //     method: 'POST',
-            //     body: JSON.stringify({
-            //         full_name: registrationForm.first_name,
-            //         email: registrationForm.email,
-            //         password: registrationForm.password,
-            //     }),
-            //     headers: {
-            //         'Content-type': 'application/json; charset=UTF-8',
-            //     },
-            // })
-            //     .then((response) => response.json())
-            //     .then((json) => console.log(json));
-            //     setPopup('login');        
+        console.log(registrationForm);
+        getResource('https://shyfonyer.shop/api/v1/users', registrationForm.first_name, registrationForm.email, registrationForm.password,);
     }
 
     const setRegistrationValue = (key: string, value: string) => {
@@ -65,18 +43,17 @@ export const RegistrationPage:  React.FC<RegistrationPageProps> = ({ setPopup })
     const first_nameRegistrationError = useMemo(() => validationNameKirLat(registrationForm.first_name), [registrationForm.first_name]);
     const emailRegistrationError = useMemo(() => validationEmail(registrationForm.email), [registrationForm.email]);
     const passwordRegistrationError = useMemo(() => validPassword(registrationForm.password), [registrationForm.password]);
-    const confirmPasswordError = useMemo(() => validPassword(registrationForm.confirmPassword), [registrationForm.confirmPassword]);
 
     useEffect(() => {
-        if (registrationForm.password !== registrationForm.confirmPassword){
+        if (registrationForm.password !== registrationForm.confirmPassword) {
             setEqualPasswords('паролі не співпадають')
-        }else{
+        } else {
             setEqualPasswords('');
         }
-            if (registrationForm.password === registrationForm.confirmPassword && first_nameRegistrationError === 'nomistake' && emailRegistrationError === 'nomistake' && passwordRegistrationError === 'nomistake') {
-                setDisabled(false);
-            } else setDisabled(true);
-    }, [ registrationForm]);
+        if (registrationForm.password === registrationForm.confirmPassword && first_nameRegistrationError === 'nomistake' && emailRegistrationError === 'nomistake' && passwordRegistrationError === 'nomistake') {
+            setDisabled(false);
+        } else setDisabled(true);
+    }, [registrationForm]);
 
     return (
         <div className={activeModal ? "modal active" : "modal"} onClick={() => dispatch(modalIsAction(false))}>
@@ -93,7 +70,7 @@ export const RegistrationPage:  React.FC<RegistrationPageProps> = ({ setPopup })
                             name='first_name'
                             id='first_name'
                             value={registrationForm.first_name}
-                            setChange={(value:any) => setRegistrationValue('first_name', value)}
+                            setChange={(value: any) => setRegistrationValue('first_name', value)}
                         />
                         <p className="red__mistake">
                             {first_nameRegistrationError === 'nomistake' ? '' : first_nameRegistrationError}
@@ -105,7 +82,7 @@ export const RegistrationPage:  React.FC<RegistrationPageProps> = ({ setPopup })
                             name='email'
                             id='email'
                             value={registrationForm.email}
-                            setChange={(value:any) => setRegistrationValue('email', value)}
+                            setChange={(value: any) => setRegistrationValue('email', value)}
                         />
                         <p className="red__mistake">
                             {emailRegistrationError === 'nomistake' ? '' : emailRegistrationError}
@@ -117,7 +94,7 @@ export const RegistrationPage:  React.FC<RegistrationPageProps> = ({ setPopup })
                             name='password'
                             id='password'
                             value={registrationForm.password}
-                            setChange={(value:any) => setRegistrationValue('password', value)}
+                            setChange={(value: any) => setRegistrationValue('password', value)}
                         />
                         <p className="red__mistake">
                             {passwordRegistrationError === 'nomistake' ? '' : passwordRegistrationError}
@@ -129,7 +106,7 @@ export const RegistrationPage:  React.FC<RegistrationPageProps> = ({ setPopup })
                             name='confirmPassword'
                             id='confirmPassword'
                             value={registrationForm.confirmPassword}
-                            setChange={(value:any) => setRegistrationValue('confirmPassword', value)}
+                            setChange={(value: any) => setRegistrationValue('confirmPassword', value)}
                         />
                         <p className="red__mistake">
                             {equalPasswords}
@@ -138,7 +115,7 @@ export const RegistrationPage:  React.FC<RegistrationPageProps> = ({ setPopup })
                     </div>
                     <button className='modal__submit-registration' type="submit" disabled={disabled}>ЗАРЕЄСТРУВАТИСЯ</button>
                 </form>
-                <p>Вже маєте акаунт?<span onClick={()=>setPopup('login')} className='login__registration'>Увійдіть!</span></p>
+                <p>Вже маєте акаунт?<span onClick={() => setPopup('login')} className='login__registration'>Увійдіть!</span></p>
             </div>
         </div>
     );

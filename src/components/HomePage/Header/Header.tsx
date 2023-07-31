@@ -6,23 +6,23 @@ import { LogInAndBasket } from '../../Basket/LogInAndBasket';
 
 import './Header.scss';
 
-export const Header = () =>{
-    const [showModalMenu,setShowModalMenu] = useState(false);
+export const Header = () => {
+    const [showModalMenu, setShowModalMenu] = useState(false);
 
     return (
-        <header className="header-main">           
+        <header className="header-main">
             <div className="header__nav">
                 <div className="header__left-menu">
-                    <img onClick={()=>setShowModalMenu(true)}  src={burgerMenu} alt="burger" />
-                    <ModalMenu active={showModalMenu} setActive={setShowModalMenu}/>
+                    <img onClick={() => setShowModalMenu(true)} src={burgerMenu} alt="burger" />
+                    <ModalMenu active={showModalMenu} setActive={setShowModalMenu} />
                 </div>
                 <div className="central-menu">
                     <h1>SHYFON’YER</h1>
-                </div>               
+                </div>
                 <div className="header__right-menu">
-                <LogInAndBasket />
-                </div> 
-            </div>            
+                    <LogInAndBasket />
+                </div>
+            </div>
             <div className="header-slogan">
                 <h1 >СТВОРІТЬ СВОЇ ІДЕАЛЬНІ</h1>
                 <h1 >МЕБЛІ З НАМИ</h1>
@@ -31,7 +31,7 @@ export const Header = () =>{
                         ДО КАТАЛОГУ
                     </button>
                 </NavLink>
-            </div>     
-    </header>
+            </div>
+        </header>
     );
 }

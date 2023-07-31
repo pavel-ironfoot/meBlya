@@ -1,18 +1,9 @@
 import { useState } from 'react';
 import watchPassword from './../../../images/watch-password.png';
 import notwatchPassword from './../../../images/dont-watch.png';
+import { FormFieldProps } from '../../../utils/types-and-interfaces';
 
 import './FormField.scss'
-
-interface FormFieldProps {
-    placeholder: string;
-    label: string;
-    value: string;
-    type: string;
-    name: string;
-    id: string;
-    setChange: (value: string) => void;
-}
 
 export const FormField: React.FC<FormFieldProps> = ({ placeholder, label, value, type, name, id, setChange }) => {
     const [changeType, setChangeType] = useState<boolean>(false);
@@ -55,8 +46,6 @@ export const FormField: React.FC<FormFieldProps> = ({ placeholder, label, value,
                     />
                 </div>
             }
-
         </div>
-
     );
 }

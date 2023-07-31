@@ -1,25 +1,15 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-
 import { validPassword, validationEmail } from '../../../validationFields/validation';
 import { FormField } from '../FormField';
-
-import './ModalLogin.scss';
 import { loginValue } from '../../../formValues/formValues';
 import { RootState } from '../../../storeToolkit';
 import { modalIsAction, userIsLoggin } from '../../../storeToolkit/isLogModalSlice';
 import { userEmail, userToken } from '../../../storeToolkit/userSlice';
 import { getMeResource, postLoginResource } from '../../../utils/helpfulFunction';
+import { LoginValuetypes, ModalLoginProps } from '../../../utils/types-and-interfaces';
 
-interface ModalLoginProps {
-    setPopup: (value: string) => void;
-}
-
-interface LoginValuetypes {
-    email: string;
-    password: string;
-}
+import './ModalLogin.scss';
 
 export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
     const dispatch = useDispatch();
@@ -37,7 +27,6 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
             if (res.token) dispatch(userIsLoggin(true));
             dispatch(userToken(res.token));
             localStorage.setItem('token', res.token);
-            /////////////////////////////////////////////
             const data = await getMeResource(`https://shyfonyer.shop/api/v1/user/me`, res.token);
             if (data) {
                 dispatch(userEmail(data.email));
@@ -51,12 +40,9 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
   
         } else {
             setSomeErrorEmailPassword('Ви ввели невірну електронну адресу чи пароль');
-            console.log('something going wrong');
         }
 
     }
-
-
 
     useEffect(() => {
         if (localStorage.getItem('saveMe')) setLoginForm({ ...loginForm, 'email': localStorage.getItem('saveMe')! })
@@ -64,9 +50,7 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
-        console.log('login is submit');
         if (rememberMe) localStorage.setItem('saveMe', loginForm.email);
-        console.log(loginForm);
         getResource('https://shyfonyer.shop/api/v1/auth/login_user', loginForm.email, loginForm.password);
            
     }
@@ -120,7 +104,6 @@ export const ModalLogin: React.FC<ModalLoginProps> = ({ setPopup }) => {
                         <p className="red__mistake">
                             {passwordLoginError === 'nomistake' ? '' : passwordLoginError}
                         </p>
-                        {/* {someErrorEmailPassword?<p className="red__mistake">Ви ввели невірну електронну адресу чи пароль</p>:<></>} */}
                         <p className="red__mistake">{someErrorEmailPassword}</p>
                     </div>
                     <div className='login__footer'>

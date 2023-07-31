@@ -12,12 +12,12 @@ export const HomePage = () => {
         <div className="home-page">
             <Header />
             <Main />
-            <OurProducts title={'ЗАЗИРНІТЬ ДО НАШОГО КАТАЛОГУ'}/>
-            <div className="home-page__show-all">                
+            <OurProducts title={'ЗАЗИРНІТЬ ДО НАШОГО КАТАЛОГУ'} />
+            <div className="home-page__show-all">
                 <NavLink to={'/catalog/main-catalog'}>
-                        <button className="home-page__show-all__button">
-                            ПЕРЕГЛЯНУТИ ВСІ
-                        </button>
+                    <button className="home-page__show-all__button">
+                        ПЕРЕГЛЯНУТИ ВСІ
+                    </button>
                 </NavLink>
             </div>
             <OurPartners />

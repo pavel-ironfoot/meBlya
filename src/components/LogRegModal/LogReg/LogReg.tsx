@@ -5,20 +5,17 @@ import { ModalForgetPassword } from "../ModalForgetPassword";
 import { ConfirmForgotPassword } from "../ConfirmForgotPassword";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../storeToolkit";
-import { NeedToLogin } from "../NeedToLogin";
-
-
 
 export const LogReg = () => {
     const [modalType, setModalType] = useState('login');
-    
-    const activeModal = useSelector((state: RootState) =>state.logReg.modalAction);
-    
-    useEffect(()=>{
-        if(activeModal===false)setModalType('login');
-    },[activeModal])
-    
-    const setPopup = (value:string) => {
+
+    const activeModal = useSelector((state: RootState) => state.logReg.modalAction);
+
+    useEffect(() => {
+        if (activeModal === false) setModalType('login');
+    }, [activeModal])
+
+    const setPopup = (value: string) => {
         setModalType(value);
     }
     return (

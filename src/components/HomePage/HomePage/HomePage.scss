@@ -1,10 +1,12 @@
-.home-page{
-    .home-page__show-all{
-        a{
+.home-page {
+    .home-page__show-all {
+        a {
             text-decoration: none;
         }
+
         border-bottom: 1px solid #D1C7A3;
-        .home-page__show-all__button{
+
+        .home-page__show-all__button {
             cursor: pointer;
             display: block;
             margin: 28px auto;
