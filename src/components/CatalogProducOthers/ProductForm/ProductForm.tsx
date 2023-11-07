@@ -66,7 +66,7 @@ export const ProductForm = () => {
         if (localStorage.getItem('token')) {
             await productFormHandleSubmit(productId,count,oneProduct,productForm,setCounterBasketElems,dispatch);
         } else {
-            await setOpenModalNeedToLogin(true);
+            setOpenModalNeedToLogin(true);
         }
     }
 

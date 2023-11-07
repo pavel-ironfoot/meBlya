@@ -30,7 +30,7 @@ export const Footer = () => {
                 </div>
                 <div className='main-footer__menu'>
                     <h1>КОНТАКТНІ ДАНІ</h1>
-                    <p>+380 (77) 777 77 77</p>
+                    <p>+380 (93) 771 29 84</p>
                     <p>shyfonyersales@info.com</p>
                     <p>місто Черкаси, вул. П. Сагайдачного 150/2, 18005</p>
                 </div>

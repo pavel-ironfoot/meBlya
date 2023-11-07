@@ -438,7 +438,7 @@ export const productFormCounterBasket = async (setCounterBasketElems: React.Disp
     }
 }
 
-export const productFormHandleSubmit = (productId: string | undefined, count: any, oneProduct: OneProductInterface | null, productForm: ProductFormState, setCounterBasketElems: React.Dispatch<React.SetStateAction<any>>, dispatch: React.Dispatch<any>) => {
+export const productFormHandleSubmit = async(productId: string | undefined, count: any, oneProduct: OneProductInterface | null, productForm: ProductFormState, setCounterBasketElems: React.Dispatch<React.SetStateAction<any>>, dispatch: React.Dispatch<any>) => {
     fetch(CART_ITEMS, {
         method: 'GET',
         headers: {

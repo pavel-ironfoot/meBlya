@@ -31,8 +31,6 @@ export const RegistrationPage: React.FC<RegistrationPageProps> = ({ setPopup }) 
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log('registration is submit');
-        console.log(registrationForm);
         getResource('https://shyfonyer.shop/api/v1/users', registrationForm.first_name, registrationForm.email, registrationForm.password,);
     }
 
